@@ -1,0 +1,21 @@
+.friend-statement {
+  color: white;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: 1s;
+  text-decoration: none;
+  padding: 5px;
+	transition: 0.8s;
+}
+
+.friend-statement:hover{
+
+    background-color: rgb(161, 156, 156);
+
+}
+
+

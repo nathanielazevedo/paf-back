@@ -1,0 +1,55 @@
+  
+
+
+.friend {
+  width: 98%;
+  height: 100px;
+  margin-top: 5px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  transition: 1s;
+}
+.friend-row {
+  width: 98%;
+  height: 100px;
+  margin-top: 5px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  transition: 1s;
+}
+
+.friend:hover{
+  background-color: rgb(146, 140, 140);
+}
+
+.friend-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: relative;
+  margin-left: 15px;
+}
+
+.friend-description {
+  flex-basis: 50%;
+  position: relative;
+}
+
+.remove-icon{
+  color: black;
+  font-size: 45px;
+  transition: 1s;
+  z-index: 100;
+}
+
+.remove-icon:hover{
+  color: rgb(218, 102, 102);
+}
