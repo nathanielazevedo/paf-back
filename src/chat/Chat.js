@@ -4,7 +4,7 @@ import "./Chat.css";
 import Paf from "../api.js";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import avatar from "../assets/60111.jpg";
+import avatar from "../assets/brain.jpg";
 
 function Chat() {
   const [formData, setFormData] = useState({ statement: "" });
@@ -45,11 +45,13 @@ function Chat() {
               case "right":
                 spot = "left";
                 break;
+              default:
+                spot="left"
             }
 
             return (
               <li className="chat-text" style={{ textAlign: spot }}>
-                {spot === "left" ? <img className="chat-avatar" src={avatar}/> : null}
+                {spot === "left" ? <img alt="avatar" className="chat-avatar" src={avatar}/> : null}
                 {t.statement}
               </li>
             );

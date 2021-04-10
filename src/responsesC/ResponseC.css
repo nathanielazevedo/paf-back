@@ -1,0 +1,26 @@
+/** @format */
+/* 
+.friend-convo-list {
+  width: 100%;
+  min-height: 80vh;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+} */
+
+
+.response{
+  float: left;
+  margin-bottom: 50px;
+  align-self: flex-start;
+  box-shadow: inset 0 0 0 0 #31302B;
+}
+
+
+

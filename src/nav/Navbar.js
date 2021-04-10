@@ -1,44 +1,49 @@
 /** @format */
 
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import UserContext from ".././UserContext";
 
-function NavBar({ logoutFunc }) {
-  const [click, setClick] = useState(false);
-  
-  const handleClick = () => setClick(!click);
-  const { currentUser } = useContext(UserContext);
+//NAVBAR no api work here
 
+function NavBar({ logoutFunc }) {
+  const { currentUser } = useContext(UserContext);
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-
+  
+  //GENERATE NAV FOR LOGGED IN USERS
   function loggedInNav() {
     return (
       <>
         <nav className="navbar">
           <div className="navbar-container">
-            <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+            <NavLink to="/" className="navbar-logo" onClick={closeMobileMenu}>
               {"<PAF/>"}
-            </Link>
+            </NavLink>
             <div className="menu-icon" onClick={handleClick}>
               <i className={click ? "fas fa-times" : "fas fa-bars"} />
             </div>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
-                <Link
+                <NavLink
                   to="/friends"
                   className="nav-links"
                   onClick={closeMobileMenu}
                 >
                   Friends
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to="/sign-up" className="nav-links" onClick={logoutFunc}>
+                <NavLink
+                  to="/sign-up"
+                  className="nav-links"
+                  onClick={logoutFunc}
+                >
                   Logout
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -47,13 +52,14 @@ function NavBar({ logoutFunc }) {
     );
   }
 
+  //GENERATE NAV FOR LOGGED OUT USERS
   function loggedOutNav() {
     return (
       <>
         <nav className="navbar">
           <div className="navbar-container">
             <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-              PAF
+              {"<PAF/>"}
             </Link>
             <div className="menu-icon" onClick={handleClick}>
               <i className={click ? "fas fa-times" : "fas fa-bars"} />

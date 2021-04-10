@@ -1,0 +1,27 @@
+.friend-statement {
+  color: white;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  transition: 1s;
+  text-decoration: none;
+  padding: 5px;
+	transition: 0.8s;
+}
+
+.friend-statement:hover{
+    color: limegreen;
+}
+
+@media screen and (max-width: 560px) {
+  .friend-statement{
+    font-size: 10px;
+  }
+
+  .title{
+    font-size:35px;
+  }
+}

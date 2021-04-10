@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="friend-convo-list"
+  >
+    <li
+      class="friend-i-say title"
+    >
+      When I say 
+    </li>
+    <li
+      class="friend-i-say title"
+    >
+      My friend can say...
+    </li>
+    <li
+      class="container-button"
+    >
+      <button
+        class="btn btn-secondary"
+        type="button"
+      >
+        Add Response
+      </button>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

@@ -65,10 +65,24 @@ class Paf {
     return res;
   }
 
+  //Edit info on a friend
+  static async editFriend(id, data) {
+    let res = await this.request(
+      `friends/${Paf.username}/${id}`,
+      data,
+      "patch"
+    );
+    return res;
+  }
+
   //Delete user friend.
   static async deleteFriend(id) {
     let data;
-    let res = await this.request(`friends/${Paf.username}/${id}`, data, "delete");
+    let res = await this.request(
+      `friends/${Paf.username}/${id}`,
+      data,
+      "delete"
+    );
     return res;
   }
 
@@ -83,7 +97,28 @@ class Paf {
   //Get info on a statment.
   static async getStatementInfo(id) {
     let res = await this.request(`statements/${Paf.username}/${id}`);
-    return res.statement;
+    return res;
+  }
+
+  //Edit info on a statement
+  static async editStatement(id, data) {
+    let res = await this.request(
+      `statements/${Paf.username}/${id}`,
+      data,
+      "patch"
+    );
+    return res;
+  }
+
+  //Delete a statment.
+  static async deleteStatement(id) {
+    let data;
+    let res = await this.request(
+      `statements/${Paf.username}/${id}`,
+      data,
+      "delete"
+    );
+    return res;
   }
 
   ///////////////// RESPONSES
@@ -91,6 +126,27 @@ class Paf {
   //Add a new response to a statement.
   static async addStatementResponse(data) {
     let res = await this.request(`responses/${Paf.username}`, data, "post");
+    return res;
+  }
+
+  //Edit info on a response
+  static async editResponse(id, data) {
+    let res = await this.request(
+      `responses/${Paf.username}/${id}`,
+      data,
+      "patch"
+    );
+    return res;
+  }
+
+  //Delete a response.
+  static async deleteResponse(id) {
+    let data;
+    let res = await this.request(
+      `responses/${Paf.username}/${id}`,
+      data,
+      "delete"
+    );
     return res;
   }
 

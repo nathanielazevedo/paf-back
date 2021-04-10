@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="form-container"
+  >
+    <div
+      class="form-inner"
+    >
+      <h3
+        class="form-title"
+      >
+        Login
+      </h3>
+      <form
+        class="form-input-container"
+      >
+        <div
+          class="form-input-group"
+        >
+          <label
+            for="Login"
+          >
+            Login
+          </label>
+          <input
+            class="form-input"
+            name="Login"
+            placeholder="Login"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+        <button
+          class="form-button"
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;

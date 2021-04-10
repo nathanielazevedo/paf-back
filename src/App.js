@@ -9,6 +9,8 @@ import UserContext from "./UserContext";
 import Paf from "./api.js";
 import Routes from "./nav/Routes";
 
+//API calls for (signup, login, user fetch) live here.
+
 function App() {
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
@@ -21,9 +23,10 @@ function App() {
     Paf.username = username;
   }
 
-  //Logging a user. Return success : true or false.
+  //LOGIN. Return success : true or false.
   let handleLogin = async (formData) => {
     try {
+      console.log(formData);
       let res = await Paf.login(formData);
       Paf.token = res.token;
       setToken(res.token);
@@ -35,19 +38,20 @@ function App() {
     }
   };
 
-  //Signing up a user. Return success : true or false.
+  //SIGN UP. Return success : true or false.
   let handleSignup = async (formData) => {
     try {
       let res = await Paf.signup(formData);
       setToken(res.token);
       localStorage.setItem("token", res.token);
-      return {success: true}
+      return { success: true };
     } catch (errors) {
       console.error("signup failed");
       return { success: false, errors };
     }
   };
 
+  //LOGOUT
   let handleLogout = async () => {
     setToken(null);
     setCurrentUser(null);
@@ -63,7 +67,7 @@ function App() {
           let user = await Paf.getUserInfo(username);
           setCurrentUser(user);
         } catch (err) {
-          console.error(err)
+          console.error(err);
         }
       }
       if (token) {
