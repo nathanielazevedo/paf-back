@@ -26,6 +26,7 @@ exports[`matches snapshot 1`] = `
           </label>
           <input
             class="form-input"
+            data-testid="Login"
             name="Login"
             placeholder="Login"
             required=""
@@ -35,6 +36,7 @@ exports[`matches snapshot 1`] = `
         </div>
         <button
           class="form-button"
+          data-testid="button"
           type="submit"
         >
           Login

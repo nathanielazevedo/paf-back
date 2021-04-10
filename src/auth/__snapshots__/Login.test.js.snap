@@ -29,6 +29,7 @@ exports[`matches snapshot 1`] = `
             </label>
             <input
               class="form-input"
+              data-testid="username"
               name="username"
               placeholder="username"
               required=""
@@ -46,6 +47,7 @@ exports[`matches snapshot 1`] = `
             </label>
             <input
               class="form-input"
+              data-testid="password"
               name="password"
               placeholder="password"
               required=""
@@ -55,6 +57,7 @@ exports[`matches snapshot 1`] = `
           </div>
           <button
             class="form-button"
+            data-testid="button"
             type="submit"
           >
             Login

@@ -26,7 +26,6 @@ function App() {
   //LOGIN. Return success : true or false.
   let handleLogin = async (formData) => {
     try {
-      console.log(formData);
       let res = await Paf.login(formData);
       Paf.token = res.token;
       setToken(res.token);
@@ -78,8 +77,7 @@ function App() {
   );
 
   return (
-    <>
-      <Router>
+
         <UserContext.Provider value={{ currentUser, setCurrentUser }}>
           <Navbar logoutFunc={(f) => handleLogout(f)} />
           <div className="main">
@@ -89,8 +87,7 @@ function App() {
             />
           </div>
         </UserContext.Provider>
-      </Router>
-    </>
+
   );
 }
 

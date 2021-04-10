@@ -2,51 +2,80 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
-  <nav
-    class="navbar"
+  <li
+    class="friend"
   >
+    <img
+      alt="avatar"
+      class="friend-avatar"
+      src="brain.jpg"
+    />
+    <h5 />
+    <p
+      class="friend-description"
+    />
     <div
-      class="navbar-container"
+      class="drop dropdown"
     >
-      <a
-        aria-current="page"
-        class="navbar-logo active"
-        href="/"
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="dropdown-toggle btn btn-secondary"
+        type="button"
       >
-        &lt;PAF/&gt;
-      </a>
+        Actions
+      </button>
       <div
-        class="menu-icon"
+        aria-hidden="true"
+        class="dropdown-menu"
+        role="menu"
+        tabindex="-1"
       >
-        <i
-          class="fas fa-bars"
-        />
+        <a
+          href="/friend/undefined"
+          style="text-decoration: none;"
+        >
+          <button
+            class="dropdown-item"
+            role="menuitem"
+            tabindex="0"
+            type="button"
+          >
+            Program Friend
+          </button>
+        </a>
+        <a
+          href="/chat/undefined"
+          style="text-decoration: none;"
+        >
+          <button
+            class="dropdown-item"
+            role="menuitem"
+            tabindex="0"
+            type="button"
+          >
+            Chat
+          </button>
+        </a>
+        <button
+          class="dropdown-item"
+          role="menuitem"
+          tabindex="0"
+          type="button"
+        >
+          Edit Friend
+        </button>
+        <button
+          class="dropdown-item"
+          id="delete"
+          role="menuitem"
+          tabindex="0"
+          type="button"
+        >
+          Delete Friend
+        </button>
       </div>
-      <ul
-        class="nav-menu"
-      >
-        <li
-          class="nav-item"
-        >
-          <a
-            class="nav-links"
-            href="/friends"
-          >
-            Friends
-          </a>
-        </li>
-        <li
-          class="nav-item"
-        >
-          <a
-            class="nav-links"
-            href="/sign-up"
-          >
-            Logout
-          </a>
-        </li>
-      </ul>
     </div>
-  </nav>
+  </li>
 </DocumentFragment>
 `;

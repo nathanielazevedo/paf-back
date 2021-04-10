@@ -34,7 +34,7 @@ function Chat() {
     <div className="chat-container">
       <div className="chat-room-container">
         <ul className="chat-spot">
-          {text.map((t) => {
+          {text.map((t, i) => {
             switch (spot) {
               case undefined:
                 spot = "left";
@@ -50,7 +50,7 @@ function Chat() {
             }
 
             return (
-              <li className="chat-text" style={{ textAlign: spot }}>
+              <li className="chat-text" style={{ textAlign: spot }} key={i}> 
                 {spot === "left" ? <img alt="avatar" className="chat-avatar" src={avatar}/> : null}
                 {t.statement}
               </li>

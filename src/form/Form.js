@@ -5,25 +5,32 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Alert } from "reactstrap";
 
-
-function MyForm({ title, inputs, func, after, close=null, id=null, pres=null }) {
+function MyForm({
+  title,
+  inputs,
+  func,
+  after,
+  close = null,
+  id = null,
+  pres = null,
+}) {
   const history = useHistory();
 
   const INITIAL_STATE = {};
-  
+
   if (pres) {
-      inputs.map((i, index) => {
-        return (INITIAL_STATE[i] = pres[index]);
-      });
+    inputs.map((i, index) => {
+      return (INITIAL_STATE[i] = pres[index]);
+    });
   } else {
-      inputs.map((i) => {
-        return (INITIAL_STATE[i] = "");
-      });
+    inputs.map((i) => {
+      return (INITIAL_STATE[i] = "");
+    });
   }
 
   const [formData, setFormData] = useState(INITIAL_STATE);
   const [formErrors, setFormErrors] = useState([]);
-  
+
   const handleChange = (evt) => {
     const { name, value } = evt.target;
     setFormData((fData) => ({
@@ -32,8 +39,9 @@ function MyForm({ title, inputs, func, after, close=null, id=null, pres=null }) 
     }));
   };
 
-  let closer = close ? <i className="fas fa-times close" onClick={close}></i> : null;
-
+  let closer = close ? (
+    <i className="fas fa-times close" onClick={close} data-testid="close"></i>
+  ) : null;
 
   //Submit form to prop func. Reroute to homepage or show errors.
   const handleSubmit = async (evt) => {
@@ -47,17 +55,15 @@ function MyForm({ title, inputs, func, after, close=null, id=null, pres=null }) 
     if (res.success) {
       setFormData(INITIAL_STATE);
       if (closer) {
-        close()
+        close();
       }
       if (after) {
         history.push(after);
       }
-      
     } else {
       setFormErrors(res.errors);
     }
   };
-
 
   return (
     <div className="form-container">
@@ -77,6 +83,7 @@ function MyForm({ title, inputs, func, after, close=null, id=null, pres=null }) 
                   onChange={handleChange}
                   placeholder={m}
                   required
+                  data-testid={m}
                 ></input>
               </div>
             );
@@ -91,7 +98,12 @@ function MyForm({ title, inputs, func, after, close=null, id=null, pres=null }) 
                 );
               })
             : null}
-          <button type="submit" className="form-button" onClick={handleSubmit}>
+          <button
+            data-testid="button"
+            type="submit"
+            className="form-button"
+            onClick={handleSubmit}
+          >
             {title}
           </button>
         </form>

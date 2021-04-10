@@ -39,8 +39,20 @@ function FriendsC({ username }) {
 
   // EDIT FRIEND
   async function editFriend(id, data) {
-    await Paf.editFriend(id, data);
+    let newFriend = await Paf.editFriend(id, data);
+    let pos = friends
+      .map((f) => {
+        return f.id;
+      })
+      .indexOf(id);
+
+    setFriends((datas) => {
+      datas[pos] = newFriend;
+
+      return [...datas];
+    }); 
     return { success: true };
+
   }
 
   // ADD FRIEND

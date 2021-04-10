@@ -7,7 +7,7 @@ import Form from "../form/Form";
 function Login({ loginFunc }) {
   return (
     <div className="login-container">
-      <Form title="Login" inputs={["username", "password"]} func={loginFunc} />
+      <Form title="Login" inputs={["username", "password"]} func={loginFunc} close={null}/>
     </div>
   );
 }
