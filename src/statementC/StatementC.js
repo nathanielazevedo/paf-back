@@ -2,20 +2,19 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "./StatementC.css";
+import Paf from "../api.js";
 import Statement from "../statement/Statement";
 import Form from "../form/Form";
-import Paf from "../api.js";
 import { Button } from "reactstrap";
+import "./StatementC.css";
 
-
-//All API calls for statement info live here.
+//All API calls regarding statements are initiated here. (CRUD)
 function StatementC() {
   const { id } = useParams();
   const [form, setForm] = useState(false);
   const [statements, setStatements] = useState();
 
-  //TOGGLE FORM
+  //TOGGLE ADD FORM
   const openForm = () => {
     setForm(true);
   };
@@ -23,22 +22,28 @@ function StatementC() {
     setForm(false);
   };
 
-  // DELETE STATEMENT
-  async function deleteStatement(id) {
-    await Paf.deleteStatement(id);
-    let pos = statements
-      .map((s) => {
-        return s.id;
-      })
-      .indexOf(id);
+  //Get all statements for a friend.
+  useEffect(
+    function () {
+      async function getFriendInfo() {
+        let friend = await Paf.getFriendInfo(id);
+        setStatements(friend.statements);
+      }
+      getFriendInfo();
+    },
+    [id]
+  );
 
-    setStatements((data) => {
-      data.splice(pos, 1);
-      return [...data];
-    });
-  }
+  //ADD
+  const addStatement = async (formData) => {
+    formData.friend_id = parseInt(id);
+    let res = await Paf.addFriendStatement(formData);
+    setStatements((data) => [...data, res]);
+    setForm(false);
+    return { success: true };
+  };
 
-  // EDIT STATEMENT
+  // EDIT
   async function editStatement(id, data) {
     await Paf.editStatement(id, data);
     let pos = statements
@@ -54,26 +59,20 @@ function StatementC() {
     return { success: true };
   }
 
-  //ADD STATEMENT
-  const addStatement = async (formData) => {
-    formData.friend_id = parseInt(id);
-    let res = await Paf.addFriendStatement(formData);
-    setStatements((data) => [...data, res]);
-    setForm(false);
-    return { success: true };
-  };
+  // DELETE
+  async function deleteStatement(id) {
+    await Paf.deleteStatement(id);
+    let pos = statements
+      .map((s) => {
+        return s.id;
+      })
+      .indexOf(id);
 
-  //GATHER STATEMENTS FOR SPECIFIC USER
-  useEffect(
-    function () {
-      async function getFriendInfo() {
-        let friend = await Paf.getFriendInfo(id);
-        setStatements(friend.statements);
-      }
-      getFriendInfo();
-    },
-    [id]
-  );
+    setStatements((data) => {
+      data.splice(pos, 1);
+      return [...data];
+    });
+  }
 
   return (
     <>

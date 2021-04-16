@@ -1,13 +1,13 @@
 /** @format */
 
 import React, { useState, useEffect } from "react";
-import "./FriendsC.css";
 import Friend from "../friend/Friend";
 import Form from "../form/Form";
 import Paf from "../api.js";
 import { Button } from "reactstrap";
+import "./FriendsC.css";
 
-//All API calls for friend info lives here
+//All API calls for FRIENDS are initiated here. (CRUD)
 
 function FriendsC({ username }) {
   const [form, setForm] = useState(false);
@@ -21,7 +21,50 @@ function FriendsC({ username }) {
     setForm(false);
   };
 
-  //DELETE FRIEND
+  //GET ALL. 
+  useEffect(
+    function () {
+      async function getFriends() {
+        let friends = await Paf.getAllFriends(username);
+        setFriends(friends);
+      }
+      getFriends();
+    },
+    [username]
+  );
+
+  //CREATE
+  const addFriend = async (formData) => {
+    let res = await Paf.addFriend(formData);
+    setFriends((data) => {
+      if (data) {
+        return [...data, res];
+      } else {
+        return [res];
+      }
+    });
+    setForm(false);
+    return { success: true };
+  };
+
+  //UPDATE
+  async function editFriend(id, data) {
+    let newFriend = await Paf.editFriend(id, data);
+    let pos = friends
+      .map((f) => {
+        return f.id;
+      })
+      .indexOf(id);
+
+    setFriends((datas) => {
+      datas[pos] = newFriend;
+
+      return [...datas];
+    });
+    return { success: true };
+  };
+
+  //DELETE
   async function deleteFriend(id) {
     await Paf.deleteFriend(id);
     let pos = friends
@@ -36,50 +79,6 @@ function FriendsC({ username }) {
       return [...data];
     });
   }
-
-  // EDIT FRIEND
-  async function editFriend(id, data) {
-    let newFriend = await Paf.editFriend(id, data);
-    let pos = friends
-      .map((f) => {
-        return f.id;
-      })
-      .indexOf(id);
-
-    setFriends((datas) => {
-      datas[pos] = newFriend;
-
-      return [...datas];
-    }); 
-    return { success: true };
-
-  }
-
-  // ADD FRIEND
-  const addFriend = async (formData) => {
-    let res = await Paf.addFriend(formData);
-    setFriends((data) => {
-      if (data) {
-        return [...data, res];
-      } else {
-        return [res];
-      }
-    });
-    setForm(false);
-    return { success: true };
-  };
-
-  // GET ALL FRIENDS
-  useEffect(
-    function () {
-      async function getFriends() {
-        let friends = await Paf.getAllFriends(username);
-        setFriends(friends);
-      }
-      getFriends();
-    },
-    [username]
-  );
 
   //GENERATE FRIENDS
   let allFriends = friends
@@ -97,6 +96,7 @@ function FriendsC({ username }) {
       })
     : null;
 
+  //Returns list of all friends a user has created.
   return (
     <>
       <ul className="friends-list">

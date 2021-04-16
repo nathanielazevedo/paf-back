@@ -1,9 +1,10 @@
+/** @format */
 
 import React from "react";
 import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
-import Navbar from "./Navbar";
 import { UserProvider } from "../testUtils";
+import Navbar from "./Navbar";
 
 it("renders without crashing", function () {
   render(
@@ -36,4 +37,4 @@ it("displays expected text", function () {
   );
 
   expect(getAllByText("Friends")[0]).toBeInTheDocument();
-}); 
+});

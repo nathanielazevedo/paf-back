@@ -11,12 +11,12 @@ import {
 } from "reactstrap";
 import Form from "../form/Form";
 
+//Generates display for each individual statement.
 
-//GENERATES DISPLAY FOR INDIVIDUAL STATEMENTS
 function Statement({ say, id, deleteFunc, editFunc, fId }) {
+  const [form, setForm] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
-  const [form, setForm] = useState(false);
 
   const openForm = () => {
     setForm(true);

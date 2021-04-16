@@ -1,13 +1,14 @@
 /** @format */
 
 import React from "react";
-import { render, cleanup, fireEvent, waitFor } from "@testing-library/react";
+import { render, fireEvent, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import FriendsC from "./FriendsC";
 import { UserProvider } from "../testUtils";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 
+//Overides API requests and returns these values for testing
 const server = setupServer(
   rest.get("http://localhost:3001/friends/Nate", (req, res, ctx) => {
     return res(
@@ -29,9 +30,6 @@ const server = setupServer(
       ctx.status(200),
       ctx.json({ name: "edited", description: "test", id: 1 })
     );
-  }),
-  rest.patch("*", (req, res, ctx) => {
-    console.log(req.url.toString());
   })
 );
 

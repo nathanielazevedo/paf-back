@@ -1,14 +1,17 @@
 /** @format */
 
 import React from "react";
-import { render, cleanup, fireEvent, waitFor } from "@testing-library/react";
+import { render, fireEvent, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import StatementC from "./StatementC";
 import { UserProvider } from "../testUtils";
-
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 
+// console.log(req.url.toString());
+
+
+//Intercepts API requests for testing.
 const server = setupServer(
   rest.get("http://localhost:3001/statements/Nate", (req, res, ctx) => {
     return res(
@@ -39,27 +42,25 @@ const server = setupServer(
     (req, res, ctx) => {
       return res(ctx.status(200), ctx.json({ statement: "edited", id: 1 }));
     }
-  ),
-  rest.patch("*", (req, res, ctx) => {
-    console.log(req.url.toString());
-  })
+  )
 );
 
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 afterEach(() => server.resetHandlers());
 
-it("renders without crashing", function () {
-  render(
+it("renders without crashing", async function () {
+  const { getByText } = render(
     <MemoryRouter>
       <UserProvider>
         <StatementC />
       </UserProvider>
     </MemoryRouter>
   );
+  await waitFor(() => expect(getByText('Add Statement')).toBeInTheDocument());
 });
-
-it("matches snapshot", function () {
+ 
+it("matches snapshot", function () { 
   const { asFragment } = render(
     <MemoryRouter>
       <UserProvider>
@@ -71,7 +72,7 @@ it("matches snapshot", function () {
 });
 
 it("displays expected text", async function () {
-  const { getAllByText, getByText } = render(
+  const { getAllByText } = render(
     <MemoryRouter>
       <UserProvider>
         <StatementC />
@@ -83,8 +84,8 @@ it("displays expected text", async function () {
   );
 });
 
-it("can open the form", async function () {
-  const { getAllByText, getByText } = render(
+it("can open the add form", async function () {
+  const { getAllByText } = render(
     <MemoryRouter>
       <UserProvider>
         <StatementC />
@@ -100,9 +101,7 @@ it("can open the form", async function () {
   );
 });
 
-it("clicking add friend displays form then submit shows new friend", async function () {
-  let username = "Nate";
-
+it("clicking add statement displays form then submit shows new statement", async function () {
   const {
     getAllByText,
     queryByText,
@@ -112,7 +111,7 @@ it("clicking add friend displays form then submit shows new friend", async funct
   } = render(
     <MemoryRouter>
       <UserProvider>
-        <StatementC username={username} />
+        <StatementC />
       </UserProvider>
     </MemoryRouter>
   );
@@ -133,13 +132,8 @@ it("clicking add friend displays form then submit shows new friend", async funct
 });
 
 it("clicking delete removes the statement", async function () {
-  let username = "Nate";
-
   const {
-    getAllByText,
     queryByText,
-    getByPlaceholderText,
-    getByTestId,
     getByText,
   } = render(
     <MemoryRouter>
@@ -162,10 +156,7 @@ it("clicking delete removes the statement", async function () {
 });
 
 it("can edit a statement", async function () {
-  let username = "Nate";
-
   const {
-    getAllByText,
     queryByText,
     getByPlaceholderText,
     getByTestId,

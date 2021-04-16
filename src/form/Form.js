@@ -1,9 +1,9 @@
 /** @format */
 
-import "./Form.css";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Alert } from "reactstrap";
+import "./Form.css";
 
 function MyForm({
   title,

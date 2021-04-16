@@ -1,21 +1,21 @@
 /** @format */
 
-import "./App.css";
-import Navbar from "./nav/Navbar";
-import { BrowserRouter as Router } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import jwt from "jsonwebtoken";
 import UserContext from "./UserContext";
+import jwt from "jsonwebtoken";
 import Paf from "./api.js";
 import Routes from "./nav/Routes";
+import Navbar from "./nav/Navbar";
+import "./App.css";
 
-//API calls for (signup, login, user fetch) live here.
+//API calls for (signup, login, user fetch) are initiated from this container.
+//API calls are truly called from the Paf class located in /api.js
 
 function App() {
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
 
-  //If token is not in state, check local storage and update state. Update API calls token.
+  //If token is not in state, check local storage and update state. Update Paf class static token variable.
   if (!token && localStorage.getItem("token")) {
     setToken(localStorage.getItem("token"));
     Paf.token = localStorage.getItem("token");
@@ -23,7 +23,7 @@ function App() {
     Paf.username = username;
   }
 
-  //LOGIN. Return success : true or false.
+  //LOGIN. Call api -> setToken in state -> set token in localStorage -> Return {"success" : true or false}.
   let handleLogin = async (formData) => {
     try {
       let res = await Paf.login(formData);
@@ -37,7 +37,7 @@ function App() {
     }
   };
 
-  //SIGN UP. Return success : true or false.
+  //SIGN UP. Call api -> setToken in state -> set token in localStorage -> Return {"success" : true or false}.
   let handleSignup = async (formData) => {
     try {
       let res = await Paf.signup(formData);
@@ -50,14 +50,14 @@ function App() {
     }
   };
 
-  //LOGOUT
+  //LOGOUT. Clear state and local storage.
   let handleLogout = async () => {
     setToken(null);
     setCurrentUser(null);
     localStorage.removeItem("token");
   };
 
-  //If token state changes from intial null value, decode token for username, request user infomation from API and set currentUser state.
+  //If token state changes from intial null value, decode token for username, request user infomation from API and set currentUser state. username is decoded from jwt.
   useEffect(
     function () {
       async function userInfo() {
@@ -69,6 +69,7 @@ function App() {
           console.error(err);
         }
       }
+      //Only call this if there is a token present.
       if (token) {
         userInfo();
       }
@@ -77,17 +78,15 @@ function App() {
   );
 
   return (
-
-        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
-          <Navbar logoutFunc={(f) => handleLogout(f)} />
-          <div className="main">
-            <Routes
-              loginFunc={(f) => handleLogin(f)}
-              signupFunc={(f) => handleSignup(f)}
-            />
-          </div>
-        </UserContext.Provider>
-
+    <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+      <Navbar logoutFunc={(f) => handleLogout(f)} />
+      <div className="main">
+        <Routes
+          loginFunc={(f) => handleLogin(f)}
+          signupFunc={(f) => handleSignup(f)}
+        />
+      </div>
+    </UserContext.Provider>
   );
 }
 

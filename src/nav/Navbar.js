@@ -2,10 +2,11 @@
 
 import React, { useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import "./Navbar.css";
 import UserContext from ".././UserContext";
+import "./Navbar.css";
 
-//NAVBAR no api work here
+//No api work here.
+//Context is consumed here to determine login status.
 
 function NavBar({ logoutFunc }) {
   const { currentUser } = useContext(UserContext);
@@ -13,8 +14,7 @@ function NavBar({ logoutFunc }) {
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  
-  //GENERATE NAV FOR LOGGED IN USERS
+  //Generate nav for logged in users.
   function loggedInNav() {
     return (
       <>
@@ -52,7 +52,7 @@ function NavBar({ logoutFunc }) {
     );
   }
 
-  //GENERATE NAV FOR LOGGED OUT USERS
+  //Generate nav for logged out users.
   function loggedOutNav() {
     return (
       <>
@@ -89,7 +89,7 @@ function NavBar({ logoutFunc }) {
       </>
     );
   }
-
+  //Check if logged in or not from context.
   return currentUser ? loggedInNav() : loggedOutNav();
 }
 

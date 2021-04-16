@@ -27,7 +27,6 @@ it("matches snapshot", function () {
   expect(asFragment()).toMatchSnapshot();
 });
 
-
 it("displays expected text", function () {
   const { getAllByText } = render(
     <MemoryRouter>
@@ -38,4 +37,4 @@ it("displays expected text", function () {
   );
 
   expect(getAllByText("ADD FRIEND")[0]).toBeInTheDocument();
-}); 
+});
