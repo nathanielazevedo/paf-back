@@ -1,4 +1,4 @@
-# Feel ![GitHub language count](https://img.shields.io/github/languages/count/nathanielazevedo/paf-back)
+# Program A Friend ![GitHub language count](https://img.shields.io/github/languages/count/nathanielazevedo/paf-back)
 > Don't make friends, program them.
 
 
