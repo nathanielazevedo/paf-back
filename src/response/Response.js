@@ -1,15 +1,26 @@
 /** @format */
 
 import React, { useState } from "react";
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 import Form from "../form/Form";
-import './Response.css'
+import "./Response.css";
+
+
+//Renders an individual response.
 
 function Response({ s, deleteFunc, editFunc }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  //Toggles individual response dropdown form.
   const [form, setForm] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
+  //Opens edit form.
   const openForm = () => {
     setForm(true);
   };
@@ -31,15 +42,15 @@ function Response({ s, deleteFunc, editFunc }) {
         </Dropdown>
       </ul>
       {form ? (
-          <Form
-            title="Edit Statement"
-            inputs={["response"]}
-            pres={s.response}
-            func={editFunc}
-            after={null}
-            close={closeForm}
-            id={s.id}
-          />
+        <Form
+          title="Edit Statement"
+          inputs={["response"]}
+          pres={s.response}
+          func={editFunc}
+          after={null}
+          close={closeForm}
+          id={s.id}
+        />
       ) : null}
     </>
   );

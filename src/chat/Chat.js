@@ -6,11 +6,14 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import avatar from "../assets/brain.jpg";
 
+//All api request regarding chatting are intiated here. (Paf.sendStatement)
+
 function Chat() {
   const [formData, setFormData] = useState({ statement: "" });
   const { id } = useParams();
   const [text, setText] = useState([{ statement: "lets chat" }]);
 
+  //handles form inputs, inputs state. Controlled component
   const handleChange = (evt) => {
     const { name, value } = evt.target;
     setFormData((fData) => ({
@@ -19,6 +22,7 @@ function Chat() {
     }));
   };
 
+  //sends text to server, server responses with resposne.
   const addText = async (evt) => {
     evt.preventDefault();
     setText((data) => [...data, formData]);
@@ -29,6 +33,7 @@ function Chat() {
     return { success: true };
   };
 
+  //spot toggles left to right. Allows for each users comment to be placed in the right spot.
   let spot;
   return (
     <div className="chat-container">
@@ -46,12 +51,14 @@ function Chat() {
                 spot = "left";
                 break;
               default:
-                spot="left"
+                spot = "left";
             }
 
             return (
-              <li className="chat-text" style={{ textAlign: spot }} key={i}> 
-                {spot === "left" ? <img alt="avatar" className="chat-avatar" src={avatar}/> : null}
+              <li className="chat-text" style={{ textAlign: spot }} key={i}>
+                {spot === "left" ? (
+                  <img alt="avatar" className="chat-avatar" src={avatar} />
+                ) : null}
                 {t.statement}
               </li>
             );
@@ -65,7 +72,7 @@ function Chat() {
             className="chat-input"
             value={formData.statement}
             onChange={handleChange}
-            autoComplete='off'
+            autoComplete="off"
           ></input>
           <button className="chat-button" onClick={addText}>
             Send

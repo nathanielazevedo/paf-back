@@ -21,7 +21,7 @@ function Friend({ name, description, id, deleteFunc, editFunc }) {
   //Dropdown toggle
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
-  //Edit info form toggle.
+  //Edit friend info form toggle.
   const openForm = () => {setForm(true)};
   const closeForm = () => {setForm(false)};
 

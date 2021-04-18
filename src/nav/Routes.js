@@ -11,7 +11,7 @@ import ResponseC from "../responsesC/ResponseC";
 import Chat from "../chat/Chat";
 import StatementC from "../statementC/StatementC";
 
-//HANDLES ALL ROUTING. ROUTES PROTECTED BY UserContext(logged in or not)
+//Handles all front end routing. Some routes are protected by UserContext(logged in or not)
 function Routes({ loginFunc, signupFunc }) {
   const { currentUser } = useContext(UserContext);
 

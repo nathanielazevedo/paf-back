@@ -18,6 +18,7 @@ function Statement({ say, id, deleteFunc, editFunc, fId }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
+  //Toggles edit form
   const openForm = () => {
     setForm(true);
   };
