@@ -13,10 +13,10 @@ While learning Spanish, I used a lot of different apps that connect you to langu
 
 ## Technologies
 * Node
-* Express 
 * React
-* JWT
-* PostgreSQL
+* React Routing
+* State Mangagement
+* Front end API calls
 * HTML5
 * CSS3
 * Javascript
