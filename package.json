@@ -20,6 +20,7 @@
     "react-strap": "0.0.1",
     "react-testing-library": "^8.0.1",
     "reactstrap": "^8.9.0",
+    "surge": "^0.23.0",
     "swr": "^0.5.5",
     "use-sound": "^2.0.1",
     "web-vitals": "^1.1.1"
