@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/paf-front-end/public/static/css/main.13ef8a70.chunk.css",
-    "main.js": "/paf-front-end/public/static/js/main.e7fc30ff.chunk.js",
-    "main.js.map": "/paf-front-end/public/static/js/main.e7fc30ff.chunk.js.map",
-    "runtime-main.js": "/paf-front-end/public/static/js/runtime-main.f335658d.js",
-    "runtime-main.js.map": "/paf-front-end/public/static/js/runtime-main.f335658d.js.map",
-    "static/css/2.4c97ca4f.chunk.css": "/paf-front-end/public/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.b6c99e7c.chunk.js": "/paf-front-end/public/static/js/2.b6c99e7c.chunk.js",
-    "static/js/2.b6c99e7c.chunk.js.map": "/paf-front-end/public/static/js/2.b6c99e7c.chunk.js.map",
-    "index.html": "/paf-front-end/public/index.html",
-    "static/css/2.4c97ca4f.chunk.css.map": "/paf-front-end/public/static/css/2.4c97ca4f.chunk.css.map",
-    "static/css/main.13ef8a70.chunk.css.map": "/paf-front-end/public/static/css/main.13ef8a70.chunk.css.map",
-    "static/js/2.b6c99e7c.chunk.js.LICENSE.txt": "/paf-front-end/public/static/js/2.b6c99e7c.chunk.js.LICENSE.txt",
-    "static/media/brain.fca87e63.jpg": "/paf-front-end/public/static/media/brain.fca87e63.jpg"
+    "main.css": "/paf-front-end/static/css/main.13ef8a70.chunk.css",
+    "main.js": "/paf-front-end/static/js/main.e7fc30ff.chunk.js",
+    "main.js.map": "/paf-front-end/static/js/main.e7fc30ff.chunk.js.map",
+    "runtime-main.js": "/paf-front-end/static/js/runtime-main.66c69e40.js",
+    "runtime-main.js.map": "/paf-front-end/static/js/runtime-main.66c69e40.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/paf-front-end/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.42640a42.chunk.js": "/paf-front-end/static/js/2.42640a42.chunk.js",
+    "static/js/2.42640a42.chunk.js.map": "/paf-front-end/static/js/2.42640a42.chunk.js.map",
+    "index.html": "/paf-front-end/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/paf-front-end/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.13ef8a70.chunk.css.map": "/paf-front-end/static/css/main.13ef8a70.chunk.css.map",
+    "static/js/2.42640a42.chunk.js.LICENSE.txt": "/paf-front-end/static/js/2.42640a42.chunk.js.LICENSE.txt",
+    "static/media/brain.fca87e63.jpg": "/paf-front-end/static/media/brain.fca87e63.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f335658d.js",
+    "static/js/runtime-main.66c69e40.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.b6c99e7c.chunk.js",
+    "static/js/2.42640a42.chunk.js",
     "static/css/main.13ef8a70.chunk.css",
     "static/js/main.e7fc30ff.chunk.js"
   ]
