@@ -28,8 +28,6 @@ jobs:
         cache: 'npm'
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
     - run: npm ci
-    - run: git config --global user.email "nathanielazevedo@hotmail.com"
-    - run: git config --global user.name "nathanielazevedo"
     - run: npm run deploy
 
 
