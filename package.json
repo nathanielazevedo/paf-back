@@ -2,7 +2,7 @@
   "name": "paf-front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nathanielazevedo.github.io/paf-front-end/public",
+  "homepage": "https://nathanielazevedo.github.io/paf-front-end/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
