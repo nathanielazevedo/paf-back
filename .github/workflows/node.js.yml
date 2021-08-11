@@ -26,8 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
     - run: npm ci
     
     - run: npm run deploy
-      with: deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+
 
