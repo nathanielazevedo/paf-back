@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 999;
+  z-index: 998;
   background: url("../assets/back2.png") center center/cover no-repeat;
   position: absolute;
   margin-left: auto;
