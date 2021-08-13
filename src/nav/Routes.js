@@ -17,7 +17,7 @@ function Routes({ loginFunc, signupFunc }) {
 
   return (
     <Switch>
-      <Route path="/" exact>
+      <Route path="/paf-front-end" exact>
         {!currentUser ? <Home /> : <Redirect to="/friends" />}
       </Route>
       <Route path="/friend/:id" exact>
