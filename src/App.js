@@ -79,7 +79,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
-      <Navbar logoutFunc={(f) => handleLogout(f)} />
+      <Navbar logoutFunc={(f) => handleLogout(f)} loginFunc={(f) => handleLogin(f)} />
       <div className="main">
         <Routes
           loginFunc={(f) => handleLogin(f)}

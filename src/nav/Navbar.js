@@ -8,11 +8,15 @@ import "./Navbar.css";
 //No api work here.
 //Context is consumed here to determine login status.
 
-function NavBar({ logoutFunc }) {
+function NavBar({ logoutFunc, loginFunc }) {
   const { currentUser } = useContext(UserContext);
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+  const closeMobileGuest = () => {
+    setClick(false);
+    loginFunc({ username : "guest", password : "guest55"})
+  }
 
   //Generate nav for logged in users.
   function loggedInNav() {
@@ -65,6 +69,14 @@ function NavBar({ logoutFunc }) {
               <i className={click ? "fas fa-times" : "fas fa-bars"} />
             </div>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
+              <li className="nav-item">
+                <Link
+                  className="nav-links"
+                  onClick={closeMobileGuest}
+                >
+                  Try as guest
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link
                   to="/login"
