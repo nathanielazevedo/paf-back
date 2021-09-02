@@ -110,7 +110,7 @@ function FriendsC({ username }) {
           title="New Friend"
           inputs={["name", "description"]}
           func={addFriend}
-          after={`/friends`}
+          after={`/paf-front-end/friends`}
           close={closeForm}
         />
       ) : null}

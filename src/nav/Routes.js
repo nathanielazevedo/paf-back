@@ -18,34 +18,34 @@ function Routes({ loginFunc, signupFunc }) {
   return (
     <Switch>
       <Route path="/paf-front-end" exact>
-        {!currentUser ? <Home /> : <Redirect to="/friends" />}
+        {!currentUser ? <Home /> : <Redirect to="/paf-front-end/friends" />}
       </Route>
-      <Route path="/friend/:id" exact>
+      <Route path="/paf-front-end/friend/:id" exact>
         <StatementC />
       </Route>
-      <Route path="/responses/:id" exact>
+      <Route path="/paf-front-end/responses/:id" exact>
         <ResponseC />
       </Route>
-      <Route path="/chat/:id" exact>
+      <Route path="/paf-front-end/chat/:id" exact>
         <Chat />
       </Route>
-      <Route path="/friends" exact>
+      <Route path="/paf-front-end/friends" exact>
         {currentUser ? (
           <FriendsC username={currentUser.username} />
         ) : (
-          <Redirect to="/" />
+          <Redirect to="/paf-front-end" />
         )}
       </Route>
-      <Route path="/login" exact>
+      <Route path="/paf-front-end/login" exact>
         {currentUser ? (
-          <Redirect to="/" />
+          <Redirect to="/paf-front-end" />
         ) : (
           <Login loginFunc={(f) => loginFunc(f)} />
         )}
       </Route>
-      <Route path="/sign-up" exact>
+      <Route path="/paf-front-end/sign-up" exact>
         {currentUser ? (
-          <Redirect to="/friends" />
+          <Redirect to="/paf-front-end/friends" />
         ) : (
           <Signup signupFunc={(f) => signupFunc(f)} />
         )}

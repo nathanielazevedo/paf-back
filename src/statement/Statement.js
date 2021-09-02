@@ -32,7 +32,10 @@ function Statement({ say, id, deleteFunc, editFunc, fId }) {
         <Dropdown isOpen={dropdownOpen} toggle={toggle} className="drop">
           <DropdownToggle caret>Actions</DropdownToggle>
           <DropdownMenu>
-            <Link to={`/responses/${id}`} style={{ textDecoration: "none" }}>
+            <Link
+              to={`/paf-front-end/responses/${id}`}
+              style={{ textDecoration: "none" }}
+            >
               <DropdownItem
                 onClick={openForm}
                 style={{ textDecoration: "none" }}
