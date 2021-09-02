@@ -30,7 +30,6 @@ function App() {
       Paf.token = res.token;
       setToken(res.token);
       localStorage.setItem("token", res.token);
-      window.location.reload();
       return { success: true };
     } catch (errors) {
       console.error("login failed");
