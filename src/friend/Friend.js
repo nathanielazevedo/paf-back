@@ -35,10 +35,16 @@ function Friend({ name, description, id, deleteFunc, editFunc }) {
         <Dropdown isOpen={dropdownOpen} toggle={toggle} className="drop">
           <DropdownToggle caret>Actions</DropdownToggle>
           <DropdownMenu>
-            <Link style={{ textDecoration: "none" }} to={`/friend/${id}`}>
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`/paf-front-end/friend/${id}`}
+            >
               <DropdownItem onClick={openForm}>Program Friend</DropdownItem>
             </Link>
-            <Link to={`/chat/${id}`} style={{ textDecoration: "none" }}>
+            <Link
+              to={`/paf-front-end/chat/${id}`}
+              style={{ textDecoration: "none" }}
+            >
               <DropdownItem>Chat</DropdownItem>
             </Link>
             <DropdownItem onClick={openForm}>Edit Friend</DropdownItem>

@@ -38,7 +38,7 @@ function Routes({ loginFunc, signupFunc }) {
       </Route>
       <Route path="/paf-front-end/login" exact>
         {currentUser ? (
-          <Redirect to="/" />
+          <Redirect to="/paf-front-end" />
         ) : (
           <Login loginFunc={(f) => loginFunc(f)} />
         )}

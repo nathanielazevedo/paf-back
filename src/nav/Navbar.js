@@ -24,7 +24,11 @@ function NavBar({ logoutFunc, loginFunc }) {
       <>
         <nav className="navbar">
           <div className="navbar-container">
-            <NavLink to="/friends" className="navbar-logo" onClick={closeMobileMenu}>
+            <NavLink
+              to="/paf-front-end/friends"
+              className="navbar-logo"
+              onClick={closeMobileMenu}
+            >
               {"<PAF/>"}
             </NavLink>
             <div className="menu-icon" onClick={handleClick}>
@@ -33,7 +37,7 @@ function NavBar({ logoutFunc, loginFunc }) {
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
                 <NavLink
-                  to="/friends"
+                  to="/paf-front-end/friends"
                   className="nav-links"
                   onClick={closeMobileMenu}
                 >
@@ -42,7 +46,7 @@ function NavBar({ logoutFunc, loginFunc }) {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/sign-up"
+                  to="/paf-front-end/sign-up"
                   className="nav-links"
                   onClick={logoutFunc}
                 >
@@ -62,7 +66,11 @@ function NavBar({ logoutFunc, loginFunc }) {
       <>
         <nav className="navbar">
           <div className="navbar-container">
-            <Link to="/paf-front-end" className="navbar-logo" onClick={closeMobileMenu}>
+            <Link
+              to="/paf-front-end"
+              className="navbar-logo"
+              onClick={closeMobileMenu}
+            >
               {"<PAF/>"}
             </Link>
             <div className="menu-icon" onClick={handleClick}>
@@ -70,16 +78,13 @@ function NavBar({ logoutFunc, loginFunc }) {
             </div>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
-                <Link
-                  className="nav-links"
-                  onClick={closeMobileGuest}
-                >
+                <Link className="nav-links" onClick={closeMobileGuest}>
                   Try as guest
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
-                  to="/login"
+                  to="/paf-front-end/login"
                   className="nav-links"
                   onClick={closeMobileMenu}
                 >
@@ -88,7 +93,7 @@ function NavBar({ logoutFunc, loginFunc }) {
               </li>
               <li className="nav-item">
                 <Link
-                  to="/sign-up"
+                  to="/paf-front-end/sign-up"
                   className="nav-links"
                   onClick={closeMobileMenu}
                 >

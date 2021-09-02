@@ -13,7 +13,7 @@ function Signup({ signupFunc }) {
         title="Sign Up"
         inputs={["username", "password", "email", "firstName", "lastName"]}
         func={signupFunc}
-        after='/friends'
+        after="/paf-front-end/friends"
       />
     </div>
   );

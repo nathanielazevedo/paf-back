@@ -113,7 +113,7 @@ function ResponseC() {
           title="New Response"
           inputs={["response"]}
           func={addResponse}
-          after={`/responses/${id}`}
+          after={`/paf-front-end/responses/${id}`}
           close={closeForm}
         />
       ) : null}
