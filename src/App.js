@@ -28,6 +28,8 @@ function App() {
     try {
       let res = await Paf.login(formData);
       Paf.token = res.token;
+      let { username } = jwt.decode(Paf.token);
+      Paf.username = username;
       setToken(res.token);
       localStorage.setItem("token", res.token);
       return { success: true };
