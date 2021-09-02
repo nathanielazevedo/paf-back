@@ -30,6 +30,7 @@ function App() {
       Paf.token = res.token;
       setToken(res.token);
       localStorage.setItem("token", res.token);
+      window.location.reload();
       return { success: true };
     } catch (errors) {
       console.error("login failed");
@@ -79,7 +80,10 @@ function App() {
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
-      <Navbar logoutFunc={(f) => handleLogout(f)} loginFunc={(f) => handleLogin(f)} />
+      <Navbar
+        logoutFunc={(f) => handleLogout(f)}
+        loginFunc={(f) => handleLogin(f)}
+      />
       <div className="main">
         <Routes
           loginFunc={(f) => handleLogin(f)}
