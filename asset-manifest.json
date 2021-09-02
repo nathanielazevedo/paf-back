@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/paf-front-end/static/css/main.06dc4ad5.chunk.css",
-    "main.js": "/paf-front-end/static/js/main.d284d6c9.chunk.js",
-    "main.js.map": "/paf-front-end/static/js/main.d284d6c9.chunk.js.map",
+    "main.js": "/paf-front-end/static/js/main.eb87c12e.chunk.js",
+    "main.js.map": "/paf-front-end/static/js/main.eb87c12e.chunk.js.map",
     "runtime-main.js": "/paf-front-end/static/js/runtime-main.66c69e40.js",
     "runtime-main.js.map": "/paf-front-end/static/js/runtime-main.66c69e40.js.map",
     "static/css/2.27dd871e.chunk.css": "/paf-front-end/static/css/2.27dd871e.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.27dd871e.chunk.css",
     "static/js/2.5dc36d07.chunk.js",
     "static/css/main.06dc4ad5.chunk.css",
-    "static/js/main.d284d6c9.chunk.js"
+    "static/js/main.eb87c12e.chunk.js"
   ]
 }
