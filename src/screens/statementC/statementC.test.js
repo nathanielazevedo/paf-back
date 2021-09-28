@@ -4,7 +4,7 @@ import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import StatementC from "./StatementC";
-import { UserProvider } from "../testUtils";
+import { UserProvider } from "../../testUtils";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 

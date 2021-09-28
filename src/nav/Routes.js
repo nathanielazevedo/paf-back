@@ -2,14 +2,15 @@
 
 import React, { useContext } from "react";
 import { Switch, Redirect, Route } from "react-router-dom";
-import Home from "../intro/Home";
+import UserContext from "../UserContext";
+import Home from "../screens/intro/Home";
 import Login from "../auth/Login";
 import Signup from "../auth/Signup";
-import UserContext from "../UserContext";
-import FriendsC from "../friendsC/FriendsC";
-import ResponseC from "../responsesC/ResponseC";
-import Chat from "../chat/Chat";
-import StatementC from "../statementC/StatementC";
+import FriendsC from "../screens/friendsC/FriendsC";
+import ResponseC from "../screens/responsesC/ResponseC";
+import Chat from "../screens/chat/Chat";
+import StatementC from "../screens/statementC/StatementC";
+import Facechat from "../screens/facechat/Facechat";
 
 //Handles all front end routing. Some routes are protected by UserContext(logged in or not)
 function Routes({ loginFunc, signupFunc }) {
@@ -28,6 +29,9 @@ function Routes({ loginFunc, signupFunc }) {
       </Route>
       <Route path="/paf-front-end/chat/:id" exact>
         <Chat />
+      </Route>
+      <Route path="/paf-front-end/facechat/:id" exact>
+        <Facechat />
       </Route>
       <Route path="/paf-front-end/friends" exact>
         {currentUser ? (

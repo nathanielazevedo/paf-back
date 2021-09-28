@@ -29,7 +29,7 @@ function NavBar({ logoutFunc, loginFunc }) {
               className="navbar-logo"
               onClick={closeMobileMenu}
             >
-              {"<PAF/>"}
+              {"<SSF/>"}
             </NavLink>
             <div className="menu-icon" onClick={handleClick}>
               <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -71,7 +71,7 @@ function NavBar({ logoutFunc, loginFunc }) {
               className="navbar-logo"
               onClick={closeMobileMenu}
             >
-              {"<PAF/>"}
+              {"<SSF/>"}
             </Link>
             <div className="menu-icon" onClick={handleClick}>
               <i className={click ? "fas fa-times" : "fas fa-bars"} />

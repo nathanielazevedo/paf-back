@@ -4,7 +4,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import Friend from "./Friend";
-import { UserProvider } from "../testUtils";
+import { UserProvider } from "../../testUtils";
 
 it("renders without crashing", function () {
   render(

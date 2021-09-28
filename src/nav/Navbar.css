@@ -9,7 +9,8 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  background: url("../assets/back2.png") center center/cover no-repeat;
+  /* background: url("../assets/back2.png") center center/cover no-repeat; */
+  background-color: rgb(87, 87, 24);
 }
 
 .navbar-container {
@@ -29,6 +30,10 @@
   font-size: 2.5rem;
   display: flex;
   align-items: center;
+  color: limegreen;
+}
+
+.navbar-logo:hover{
   color: limegreen;
 }
 

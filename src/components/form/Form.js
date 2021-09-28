@@ -42,7 +42,7 @@ function MyForm({
   const [formData, setFormData] = useState(INITIAL_STATE);
   const [formErrors, setFormErrors] = useState([]);
 
-  //Handles form inputes, updates state from info in evt.target.
+  //Handles form inputs, updates state from info in evt.target.
   const handleChange = (evt) => {
     const { name, value } = evt.target;
     setFormData((fData) => ({

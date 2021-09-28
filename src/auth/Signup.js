@@ -2,7 +2,7 @@
 
 import React from "react";
 import "./Signup.css";
-import Form from "../form/Form";
+import Form from "../components/form/Form";
 
 //SignupFunc is passed down from App.js as a prop. This component passes the signupFunc down to the form.
 

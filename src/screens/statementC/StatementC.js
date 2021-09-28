@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Paf from "../api.js";
-import Statement from "../statement/Statement";
-import Form from "../form/Form";
+import Paf from "../../api.js";
+import Statement from "../../components/statement/Statement";
+import Form from "../../components/form/Form";
 import { Button } from "reactstrap";
 import "./StatementC.css";
 

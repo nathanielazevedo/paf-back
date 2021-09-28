@@ -2,17 +2,17 @@
 
 import React from "react";
 import "./HeroSection.css";
-import "../App.css";
+import "../../App.css";
 
 //Basic hero section
 
-function HeroSection() {
+function Home() {
   return (
     <div className="hero-container">
-      <h1>PROGRAM A FRIEND</h1>
-      <p>To learn with, cope with, laugh with.</p>
+      <h1>Spanish Speaking Robot</h1>
+      <p>Program your own Spanish speaking friend</p>
     </div>
   );
 }
 
-export default HeroSection;
+export default Home;

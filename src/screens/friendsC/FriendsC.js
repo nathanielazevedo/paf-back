@@ -1,9 +1,9 @@
 /** @format */
 
 import React, { useState, useEffect } from "react";
-import Friend from "../friend/Friend";
-import Form from "../form/Form";
-import Paf from "../api.js";
+import Friend from "../../components/friend/Friend";
+import Form from "../../components/form/Form";
+import Paf from "../../api.js";
 import { Button } from "reactstrap";
 import "./FriendsC.css";
 

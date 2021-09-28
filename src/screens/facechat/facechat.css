@@ -1,0 +1,173 @@
+.startRecording{
+  color: white;
+  border: solid white 3px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: red;
+  cursor: pointer;
+}
+
+.head{
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.eyes{
+  width: 40vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.eyeball{
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  margin: 50px
+}
+
+.mouth{
+  width: 35vw;
+  height: 1px;
+  margin-top: 5px;
+  border: solid black 1px;
+}
+
+.base{
+    width: 35vw;
+  height: 1px;
+}
+
+.a{
+  width: 175px;
+  height: 30px;
+}
+
+.b{
+  width: 20px;
+  height: 50px
+}
+
+.c{
+  width: 150px;
+  height: 10px;
+}
+
+.d{
+  width: 20px;
+  height: 50px
+}
+
+.e{
+  width: 200px;
+  height: 20px;
+}
+
+.f{
+  width: 150px;
+}
+
+.g{
+  width: 200px;
+  height: 20px;
+}
+
+.h{
+  width: 205px;
+  height: 5px;
+}
+
+.i{
+  width: 75px;
+  height: 100px;
+}
+
+.j{
+  width: 175px;
+  height: 30px; 
+}
+
+.k{
+  width: 200px;
+  height: 20px;
+}
+
+.l{
+  width: 200px;
+  height: 10px;
+}
+
+.m{
+  width: 75px;
+  height: 20px;
+}
+
+.o{
+  width: 50px;
+  height: 50px;
+}
+
+.p{
+  width: 50px;
+  height: 50px;
+}
+
+.q{
+
+}
+
+.r{
+  width: 75px;
+  height: 100px;
+}
+
+.s{
+  height: 20px;
+  width: 75px;
+}
+
+.t{
+  width: 50px;
+  height: 5px;
+}
+
+.u{
+  width: 75px;
+  height: 70px;
+
+}
+.v{
+
+}
+
+.w{
+
+}
+
+.x{
+
+}
+
+.y{
+
+}
+
+.z{
+
+}
+
+.recording{
+  background-color: green;
+}
+
+.talk{
+font-size: 90px;
+  color: white;
+  margin-left: 50px;
+}

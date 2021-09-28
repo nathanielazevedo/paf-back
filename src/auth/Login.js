@@ -2,7 +2,7 @@
 
 import React from "react";
 import "./Login.css";
-import Form from "../form/Form";
+import Form from "../components/form/Form";
 
 //Loginfunc is passed down from App.js as a prop. This component passes the loginfunc down to the form.
 

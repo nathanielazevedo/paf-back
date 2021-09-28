@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from "react";
-import avatar from "../assets/brain.jpg";
+import avatar from "./brain.jpg";
 import { Link } from "react-router-dom";
 import {
   Dropdown,
@@ -13,7 +13,6 @@ import Form from "../form/Form";
 import "./Friend.css";
 
 //Renders individual friend. State for edit form and dropdown selections for each friend live here.
-
 function Friend({ name, description, id, deleteFunc, editFunc }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [form, setForm] = useState(false);
@@ -42,7 +41,7 @@ function Friend({ name, description, id, deleteFunc, editFunc }) {
               <DropdownItem onClick={openForm}>Program Friend</DropdownItem>
             </Link>
             <Link
-              to={`/paf-front-end/chat/${id}`}
+              to={`/paf-front-end/facechat/${id}`}
               style={{ textDecoration: "none" }}
             >
               <DropdownItem>Chat</DropdownItem>

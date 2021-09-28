@@ -3,10 +3,10 @@
 import "./ResponseC.css";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Form from "../form/Form";
-import Paf from "../api.js";
+import Form from "../../components/form/Form";
+import Paf from "../../api.js";
 import { Button } from "reactstrap";
-import Response from "../response/Response";
+import Response from "../../components/response/Response";
 
 //All api requests regarding responses are initiated here. (CRUD)
 
