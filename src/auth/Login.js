@@ -18,20 +18,21 @@ function Login({loginFunc}) {
   return (
     <div className="login-container">
       <form className="login-form">
-        <h3 className="login-title">Login</h3>
         <input
           className="login-input"
           value={formData.username}
           name="username"
           onChange={(e) => handleChange(e)}
+          placeholder="username"
         />
         <input
           className="login-input"
           value={formData.password}
           name="password"
           onChange={(e) => handleChange(e)}
+          placeholder="password"
         />
-        <button onClick={() => loginFunc(formData)}>Login</button>
+        <button onClick={() => loginFunc(formData)} className="login-submit">Login</button>
       </form>
     </div>
   );

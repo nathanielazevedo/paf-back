@@ -1,6 +1,6 @@
 /** @format */
 
-import React, {useContext} from "react";
+import React, {useContext, Suspense} from "react";
 import {Switch, Redirect, Route} from "react-router-dom";
 import UserContext from "../UserContext";
 import Home from "../screens/home/Home";
@@ -19,7 +19,7 @@ function Routes({loginFunc, signupFunc}) {
   return (
     <Switch>
       <Route path="/" exact>
-        {!currentUser ? <Home /> : <Redirect to="/friends" />}
+        {!currentUser ? <Suspense fallback={null}><Home /></Suspense> : <Redirect to="/friends" />}
       </Route>
       <Route path="/friend/:id" exact>
         <StatementC color={currentUser?.color}/>

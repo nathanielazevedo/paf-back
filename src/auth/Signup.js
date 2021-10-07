@@ -17,43 +17,45 @@ function Signup({signupFunc}) {
   }
   return (
     <div className="signup-container">
-      <form className="signup-form">
-        <h3 className="signup-title">Sign Up</h3>
+      <form className="login-form">
         <input
-          className="signup-input"
+          className="login-input"
           value={formData.username}
           name="username"
           onChange={(e) => handleChange(e)}
+          placeholder="username"
         />
-        password
         <input
-          className="signup-input"
+          className="login-input"
           value={formData.password}
           name="password"
           onChange={(e) => handleChange(e)}
+          placeholder="password"
         />
-        firstname
+  
         <input
-          className="signup-input"
+          className="login-input"
           value={formData.firstName}
           name="firstName"
           onChange={(e) => handleChange(e)}
+          placeholder="first name"
         />
-        lastname
+
         <input
-          className="signup-input"
+          className="login-input"
           value={formData.lastName}
           name="lastName"
           onChange={(e) => handleChange(e)}
+          placeholder="last name"
         />
-        email
         <input
-          className="signup-input"
+          className="login-input"
           value={formData.email}
           name="email"
           onChange={(e) => handleChange(e)}
+          placeholder="email"
         />
-        <button onClick={() => signupFunc(formData)}>Sign Up</button>
+        <button onClick={() => signupFunc(formData)} className="login-submit">Sign Up</button>
       </form>
     </div>
   );

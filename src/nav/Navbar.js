@@ -23,12 +23,12 @@ function NavBar({logoutFunc, loginFunc}) {
     return (
       <nav className="nav-container">
         <NavLink to="/" exact className="nav-logo" onClick={closeMobileMenu}>
-          Spanish{" "}
+          Spanish Speaking{" "}
           <div
             style={{display: "inline"}}
             className={`accent ${currentUser.color}`}
           >
-            Partner
+            Robot
           </div>
         </NavLink>
         <div className="nav-hamburger" onClick={handleClick}>
@@ -66,8 +66,8 @@ function NavBar({logoutFunc, loginFunc}) {
           className="nav-logo"
           onClick={closeMobileMenu}
         >
-          Spanish{" "}
-          <div style={{color: "#1fa58a", display: "inline"}}>Partner</div>
+          Spanish Speaking{" "}
+          <div style={{color: "#1fa58a", display: "inline"}}>Robot</div>
         </Link>
         <div className="nav-hamburger">
           <i

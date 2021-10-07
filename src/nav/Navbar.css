@@ -29,6 +29,10 @@
   border-bottom: .4vh solid #121212;
 }
 
+.nav-link:hover{
+  cursor: pointer;
+}
+
 .nav-hamburger {
   display: none;
 }

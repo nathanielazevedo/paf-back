@@ -12,7 +12,8 @@
   display: flex;
   flex-direction: column;
   padding: 50px;
-  background-color: #121212;
+  /* border: #121212 solid 5px; */
+  width: 50vw;
 }
 
 .login-title{
@@ -22,7 +23,24 @@
 .login-input{
   background-color: transparent;
   border: none;
-  border-bottom: solid white 1px;
+  border-bottom: solid white 1.5px;
   margin: 20px 0;
   color: white;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.login-input::placeholder{
+  color: white;
+  font-size: 20px;
+}
+
+.login-submit{
+  border: none;
+  color: white;
+  background-color: #0f0b0b;
+  padding: 10px;
+  margin-top: 15px;
+  font-size: 20px;
+  border-radius: 5px;
 }
