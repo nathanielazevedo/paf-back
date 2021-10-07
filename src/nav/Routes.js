@@ -61,6 +61,13 @@ function Routes({loginFunc, signupFunc}) {
           <Signup signupFunc={(f) => signupFunc(f)} />
         )}
       </Route>
+      <Route path="/">
+        {currentUser ? (
+          <Redirect to="/paf-front-end/" />
+        ) : (
+          <Signup signupFunc={(f) => signupFunc(f)} />
+        )}
+      </Route>
     </Switch>
   );
 }
