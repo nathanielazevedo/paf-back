@@ -1,6 +1,6 @@
 /** @format */
 
-import React, {Suspense} from "react";
+import React from "react";
 import "./Home.css";
 import "../../App.css";
 import {Canvas, useLoader, useFrame} from "@react-three/fiber";
