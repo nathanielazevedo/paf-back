@@ -1,27 +1,54 @@
-.friend-statement {
-  color: white;
-  list-style-type: none;
+.statements-responses-container{
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.statement-container {
+  display: flex;
   align-items: center;
-  width: 100%;
-  transition: 1s;
-  text-decoration: none;
-  padding: 5px;
-	transition: 0.8s;
+  background-color: #121212;
+  padding: 15px;
+  border-radius: 7px;
 }
 
-.friend-statement:hover{
-    color: limegreen;
+.statement{
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 15px;
 }
 
-@media screen and (max-width: 560px) {
-  .friend-statement{
-    font-size: 10px;
-  }
-
-  .title{
-    font-size:35px;
-  }
+.edit-statement{
+  color: white;
+  margin-right: 15px;
 }
+
+.delete-statement{
+  color: white;
+}
+
+.delete-statement:hover{
+  color: rgb(175, 46, 46);
+}
+
+.statement-options{
+  display: flex;
+  align-self: flex-end;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.index{
+  margin-right: 35px;
+}
+
+.hi{
+  color: white;
+}
+
+.editable{
+  border-bottom: solid rgb(155, 155, 155) 1px;
+}
+

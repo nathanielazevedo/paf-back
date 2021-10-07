@@ -1,70 +1,81 @@
-/** @format */
-
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, {useState, useContext, useRef} from "react";
 import "./statement.css";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
-import Form from "../form/Form";
-
+import ResponsesContainer from "../../screens/responses-container/ResponsesContainer";
+import UserContext from '../../UserContext'
 //Generates display for each individual statement.
 
-function Statement({ say, id, deleteFunc, editFunc, fId }) {
-  const [form, setForm] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
+function Statement({statement, id, editFunc, deleteFunc, addFunc, add, index}) {
+  const [edit, setEdit] = useState(true);
+  const input = useRef(null)
+  const [formData, setFormData] = useState({statement});
+  const [showResponses, setShowResponses] = useState(false)
+  const {currentUser} = useContext(UserContext)
+  function toggleEdit() {
+    setEdit((old) => !old);
+  }
 
-  //Toggles edit form
-  const openForm = () => {
-    setForm(true);
+  function handleFocus(){
+    console.log(input.current)
+    input.current.focus();
+  }
+
+  if(!edit){
+    handleFocus();
+    console.log('focused')
+  }
+  
+  //Handles form inputs, updates state from info in evt.target.
+  const handleChange = (evt) => {
+    const {name, value} = evt.target;
+    setFormData((fData) => ({
+      ...fData,
+      [name]: value,
+    }));
   };
-  const closeForm = () => {
-    setForm(false);
-  };
-  return (
-    <>
-      <li className="friend-i-say">
-        <h3>{say}</h3>
-        <Dropdown isOpen={dropdownOpen} toggle={toggle} className="drop">
-          <DropdownToggle caret>Actions</DropdownToggle>
-          <DropdownMenu>
-            <Link
-              to={`/paf-front-end/responses/${id}`}
-              style={{ textDecoration: "none" }}
+
+  if(add){
+    return (
+      <div className="statements-responses-container">
+        <div className="statement-container">
+          <input value={formData.statement} name="statement" onChange={handleChange} className="statement"/>
+          <div className="statement-options">
+            <div
+              className="delete-statement"
+              onClick={() => addFunc(formData)}
             >
-              <DropdownItem
-                onClick={openForm}
-                style={{ textDecoration: "none" }}
-              >
-                Program Responses
-              </DropdownItem>
-            </Link>
-            <DropdownItem onClick={openForm}>Edit Statement</DropdownItem>
-            <DropdownItem id="delete" onClick={deleteFunc}>
-              Delete Statement
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-      </li>
-      {form ? (
-        <div className="floating-form">
-          <Form
-            title="Edit Statement"
-            inputs={["statement"]}
-            pres={[say]}
-            func={(id, data) => editFunc(id, data)}
-            after={null}
-            close={closeForm}
-            id={id}
-          />
+              {"Save"}
+            </div>
+          </div>
         </div>
-      ) : null}
-    </>
-  );
+        <ResponsesContainer id={id} showResponses={showResponses}/>
+      </div>
+    );  
+  }else{
+    return (
+      <div className="statements-responses-container" >
+        <div className="statement-container">
+        <i className={`fa ${showResponses ? 'fa-chevron-up' : 'fa-chevron-down'} index ${currentUser?.color}`} onClick={() => setShowResponses((old) => !old)}></i>
+          <input type='text' ref={input} value={formData.statement} disabled={edit} name="statement" onChange={handleChange} className={`statement ${edit ? '' : 'editable'}`} autoComplete="off" autoFocus/>
+          <div className="statement-options">
+            <div
+              className="edit-statement"
+              onClick={ edit ? (evt) => {toggleEdit();} : () => { toggleEdit(); editFunc(id, formData); }}
+            >
+              {edit ? <i className="fas fa-pen edit-statement"></i> : "Save"}
+            </div>
+            <div
+              className="delete-statement"
+              onClick={() => deleteFunc(id)}
+            >
+              {edit ? <i className="fa fa-trash-alt delete-statement"></i> : ""}
+            </div>
+          </div>
+        </div>
+        <ResponsesContainer id={id} showResponses={showResponses}/>
+      </div>
+    );
+  }
+
 }
 
 export default Statement;

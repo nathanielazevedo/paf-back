@@ -4,22 +4,60 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Londrina Solid", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family:Arial, Helvetica, sans-serif
+}
+body {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll; 
 }
 
-.friend-i-say {
-  text-decoration: none;
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
-
-.main {
-  min-height: 95vh;
-  width: 100%;
+#root{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  object-fit: contain;
-  /* background: url("./assets/back2.png") center center/cover no-repeat; */
-  background-color: teal;
+  min-height: 100vh;
+}
+
+input:focus {
+        outline:none;
+    }
+
+
+.green{
+  color: #1fa58a;
+}
+
+.green.active{
+  border-bottom: solid #1fa58a 2px;
+}
+
+.nav-link.green:hover{
+  border-bottom: #1fa58a 2px solid;
+}
+
+.orange{
+  color: rgb(235, 169, 48);
+}
+
+.orange.active{
+  border-bottom: solid rgb(235, 169, 48) 2px;
+}
+
+.nav-link.orange:hover{
+  border-bottom: rgb(235, 169, 48) 2px solid;
+}
+
+.blue{
+  color: rgb(82, 82, 204);
+}
+
+.blue.active{
+  border-bottom: solid rgb(82, 82, 204) 2px;
+}
+
+.nav-link.blue:hover{
+  border-bottom: rgb(82, 82, 204) 2px solid;
 }

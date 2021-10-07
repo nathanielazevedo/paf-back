@@ -1,2 +1,27 @@
-/** @format */
 
+.signup-container{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c2227;
+}
+
+.signup-form{
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  background-color: #121212;
+}
+
+.signup-title{
+  color: white;
+}
+
+.signup-input{
+  background-color: transparent;
+  border: none;
+  border-bottom: solid white 1px;
+  margin: 20px 0;
+  color: white;
+}

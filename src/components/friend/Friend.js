@@ -1,71 +1,42 @@
-/** @format */
-
-import React, { useState } from "react";
-import avatar from "./brain.jpg";
-import { Link } from "react-router-dom";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
-import Form from "../form/Form";
+import React, {useState, useContext} from "react";
+import {Link} from "react-router-dom";
 import "./Friend.css";
+import UserContext from "../../UserContext";
 
 //Renders individual friend. State for edit form and dropdown selections for each friend live here.
-function Friend({ name, description, id, deleteFunc, editFunc }) {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [form, setForm] = useState(false);
+function Friend({name, description, id, addFriendFunc, add = false}) {
+  const {currentUser} = useContext(UserContext);
+  const INITIAL_STATE = {name, description}
+  const [formData, setFormData] = useState(INITIAL_STATE);
 
-  //Dropdown toggle
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
+  const handleChange = (evt) => {
+    let {name, value} = evt.target;
+    setFormData((old) => (
+      {
+        ...old,
+        [name]: value
+      }
+    ))
+  }
 
-  //Edit friend info form toggle.
-  const openForm = () => {setForm(true)};
-  const closeForm = () => {setForm(false)};
-
-  return (
-    <>
-      <li className="friend">
-        <img src={avatar} className="friend-avatar" alt="avatar" />
-        <h5>{name}</h5>
-        <p className="friend-description">{description}</p>
-
-        <Dropdown isOpen={dropdownOpen} toggle={toggle} className="drop">
-          <DropdownToggle caret>Actions</DropdownToggle>
-          <DropdownMenu>
-            <Link
-              style={{ textDecoration: "none" }}
-              to={`/paf-front-end/friend/${id}`}
-            >
-              <DropdownItem onClick={openForm}>Program Friend</DropdownItem>
-            </Link>
-            <Link
-              to={`/paf-front-end/facechat/${id}`}
-              style={{ textDecoration: "none" }}
-            >
-              <DropdownItem>Chat</DropdownItem>
-            </Link>
-            <DropdownItem onClick={openForm}>Edit Friend</DropdownItem>
-            <DropdownItem id="delete" onClick={deleteFunc}>
-              Delete Friend
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-      </li>
-      {form ? (
-        <Form
-          title="Edit Friend"
-          inputs={["name", "description"]}
-          pres={[name, description]}
-          func={(id, data) => editFunc(id, data)}
-          after={null}
-          close={closeForm}
-          id={id}
-        />
-      ) : null}
-    </>
-  );
+  if (add) {
+    return (
+      <div className="friend add-friend">
+        <div className="add-friend-info">
+          <input className="friend-name add-friend-input" name='name' value={formData.name} onChange={(evt) => handleChange(evt)}/>
+          <input className="friend-description-main add-friend-input accent" name='description' value={formData.description} onChange={(evt) => handleChange(evt)}/>
+        </div>
+        <span className="submit-friend" onClick={() => addFriendFunc(formData)}>Save</span>
+      </div>
+    );
+  } else {
+    return (
+      <Link className="friend" to={`/paf-front-end/friend/${id}`}>
+        <h5 className="friend-name">{name}</h5>
+        <p className={`friend-description-main accent ${currentUser.color}`}>{description}</p>
+      </Link>
+    );
+  }
 }
 
 export default Friend;

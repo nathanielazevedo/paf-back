@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Alert } from "reactstrap";
 import "./Form.css";
 
 //This component is used for every instances a form is need throughout the app. It accepts many different props that will adjust it's behavior.
@@ -23,9 +22,9 @@ function MyForm({
   close = null,
   id = null,
   pres = null,
+  display = 'hide'
 }) {
   const history = useHistory();
-
   const INITIAL_STATE = {};
 
   //fills intials state of form depending if "pres" were passed down as props
@@ -80,7 +79,7 @@ function MyForm({
   };
 
   return (
-    <div className="form-container">
+    <div className={`form-container ${display}`}>
       <div className="form-inner">
         {closer}
         <h3 className="form-title">{title}</h3>
@@ -105,10 +104,10 @@ function MyForm({
           {formErrors.length
             ? formErrors.map((e, i) => {
                 return (
-                  <Alert color="danger" key={i}>
+                  <div color="danger" key={i}>
                     {" "}
                     {e}
-                  </Alert>
+                  </div>
                 );
               })
             : null}

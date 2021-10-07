@@ -1,0 +1,20 @@
+/** @format */
+
+.friends-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #1c2227;
+  flex: 1;
+  padding-top: 50px;
+}
+
+.add-friend-button{
+  background-color: transparent;
+  border: none;
+  font-size: 45px;
+  align-self: flex-end;
+  margin-right: 100px;
+  margin-top: 10px;
+}

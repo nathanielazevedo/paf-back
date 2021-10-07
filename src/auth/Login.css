@@ -1,13 +1,28 @@
 /** @format */
 
-/* .login-container {
-  background: url("../assets/form-back.jpg") center center/cover no-repeat;
-  height: 100vh;
-  width: 100%;
+.login-container{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c2227;
+}
+
+.login-form{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-  object-fit: contain;
-} */
+  padding: 50px;
+  background-color: #121212;
+}
+
+.login-title{
+  color: white;
+}
+
+.login-input{
+  background-color: transparent;
+  border: none;
+  border-bottom: solid white 1px;
+  margin: 20px 0;
+  color: white;
+}

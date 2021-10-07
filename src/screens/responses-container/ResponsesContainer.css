@@ -1,0 +1,16 @@
+.responses-container {
+  display: flex;
+  flex-direction: column;
+  height: 0px;
+  overflow: hidden;
+  background-color: #121212;
+  margin-left: 25px;
+  border-radius: 5px;
+}
+
+.showResponses{
+  height: fit-content;
+}
+
+
+

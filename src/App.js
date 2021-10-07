@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { useState, useEffect } from "react";
 import UserContext from "./UserContext";
 import jwt from "jsonwebtoken";
@@ -14,6 +12,7 @@ import "./App.css";
 function App() {
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
+  const [reload, setReload] = useState(false);
 
   //If token is not in state, check local storage and update state. Update Paf class static token variable.
   if (!token && localStorage.getItem("token")) {
@@ -76,21 +75,19 @@ function App() {
         userInfo();
       }
     },
-    [token]
+    [token, reload]
   );
 
   return (
-    <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+    <UserContext.Provider value={{ currentUser, setCurrentUser, setReload }}>
       <Navbar
         logoutFunc={(f) => handleLogout(f)}
         loginFunc={(f) => handleLogin(f)}
       />
-      <div className="main">
-        <Routes
-          loginFunc={(f) => handleLogin(f)}
-          signupFunc={(f) => handleSignup(f)}
-        />
-      </div>
+      <Routes
+        loginFunc={(f) => handleLogin(f)}
+        signupFunc={(f) => handleSignup(f)}
+      />
     </UserContext.Provider>
   );
 }

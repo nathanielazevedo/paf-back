@@ -1,8 +1,58 @@
 .response{
-    height: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  border-top: solid 0.5px rgb(31, 29, 12);
+  padding: 10px;
+  align-items: center;
+  border-radius: 5px
 }
+
+.response-index{
+  margin-left: 10px;
+}
+
+.inputText{
+  color: white;
+  background-color: transparent;
+  border: none;
+  margin-left: 25px;
+  font-size: 13px;
+}
+
+.response-edit{
+  align-self: flex-end;
+  margin-right: 20px;
+}
+
+.response-delete{
+  color: red;
+}
+
+.response-options{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editable{
+  border-bottom: solid gold 1px;
+}
+
+.add-response{
+  font-size: 25px;
+  align-self: center;
+  justify-self: center;
+  background-color: transparent;
+  border: none;
+  margin-right: 27px;
+}
+
+.editable{
+  border-bottom: solid  #FFD300 1px;
+}
+
+
+
+
+

@@ -2,8 +2,8 @@
 
 import axios from "axios";
 
-const BASE_URL =
-  "https://programafriend.herokuapp.com" || "http://localhost:3001";
+const BASE_URL = "http://localhost:3001";
+  // "https://programafriend.herokuapp.com" || "http://localhost:3001";
 
 
 class Paf {
@@ -44,6 +44,12 @@ class Paf {
   //Get user profile
   static async getUserInfo(username) {
     let res = await this.request(`users/${username}`);
+    return res;
+  }
+
+  //Update User Portfolio
+  static async updateUserInfo(data) {
+    let res = await this.request(`users/${this.username}`, data, "patch");
     return res;
   }
 

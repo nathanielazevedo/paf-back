@@ -1,27 +1,26 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, {useState} from "react";
+import {useParams} from "react-router-dom";
 import "./facechat.css";
 import Paf from "../../api.js";
-import { getByDisplayValue } from "@testing-library/dom";
 
 function FaceChat() {
   const [letter, setLetter] = useState("base");
   const [sentence, setSentence] = useState("shut up please bitch");
-  const [recording, setRecording] = useState('blank')
-  const [talkable, setTalkable] = useState('talk')
-  const { id } = useParams();
+  const [recording, setRecording] = useState("blank");
+  const [talkable, setTalkable] = useState("talk");
+  const {id} = useParams();
 
   var synth = window.speechSynthesis;
-  let senArray = sentence.split("");
+  // let senArray = sentence.split("");
   var utterThis = new SpeechSynthesisUtterance(sentence);
   let voices = synth.getVoices();
-  utterThis.voice = voices[49];
+  utterThis.voice = voices[15];
   const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
-  console.log(recognition)
+  console.log(recognition);
   // console.log(image)
   //sets the next letter
   // function speak() {
@@ -55,15 +54,13 @@ function FaceChat() {
   //   myLoop();
   // }, [sentence]);
 
-
   function speak() {
-    console.log("hello");
-        var i = 1;
-    let word = sentence.split('')
+    var i = 1;
+    let word = sentence.split("");
 
     function myLoop() {
       setTimeout(function () {
-        setLetter((word[i]));
+        setLetter(word[i]);
         i++;
         if (i < 10) {
           myLoop();
@@ -97,16 +94,16 @@ function FaceChat() {
   // };
 
   function startListening() {
-    setRecording('recording')
-    setTalkable('no')
+    setRecording("recording");
+    setTalkable("no");
     recognition.start();
   }
 
   recognition.onresult = function (event) {
-    setRecording('blank')
-        setTalkable('talk')
+    setRecording("blank");
+    setTalkable("talk");
     var transcript = event.results[0][0].transcript;
-    var confidence = event.results[0][0].confidence;
+    // var confidence = event.results[0][0].confidence;
     setSentence(transcript);
     // sends text to server, server responses with resposne.
     const addText = async () => {
@@ -121,7 +118,7 @@ function FaceChat() {
   };
 
   return (
-    <>
+    <div className="head-container">
       <div className="head">
         <div className="eyes">
           <div className="eyeball"></div>
@@ -129,14 +126,22 @@ function FaceChat() {
         </div>
         <div className={`mouth ${letter}`}></div>
       </div>
-      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        <div onClick={startListening} className={`startRecording ${recording}`} >
-        </div>
-        <div onClick={speak}  className={`${talkable}`} >
-        {'>'}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          onClick={startListening}
+          className={`startRecording ${recording}`}
+        ></div>
+        <div onClick={speak} className={`${talkable}`}>
+          {">"}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
