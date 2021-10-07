@@ -31,7 +31,7 @@ function Friend({name, description, id, addFriendFunc, add = false}) {
     );
   } else {
     return (
-      <Link className="friend" to={`/paf-front-end/friend/${id}`}>
+      <Link className="friend" to={`/friend/${id}`}>
         <h5 className="friend-name">{name}</h5>
         <p className={`friend-description-main accent ${currentUser.color}`}>{description}</p>
       </Link>

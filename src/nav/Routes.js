@@ -18,52 +18,52 @@ function Routes({loginFunc, signupFunc}) {
 
   return (
     <Switch>
-      <Route path="/paf-front-end" exact>
-        {!currentUser ? <Home /> : <Redirect to="/paf-front-end/friends" />}
+      <Route path="/" exact>
+        {!currentUser ? <Home /> : <Redirect to="/friends" />}
       </Route>
-      <Route path="/paf-front-end/friend/:id" exact>
+      <Route path="/friend/:id" exact>
         <StatementC color={currentUser?.color}/>
       </Route>
-      <Route path="/paf-front-end/responses/:id" exact>
+      <Route path="/responses/:id" exact>
         <ResponseC />
       </Route>
-      <Route path="/paf-front-end/chat/:id" exact>
+      <Route path="/chat/:id" exact>
         <Chat />
       </Route>
-      <Route path="/paf-front-end/facechat/:id" exact>
+      <Route path="/facechat/:id" exact>
         <Facechat />
       </Route>
-      <Route path="/paf-front-end/settings" exact>
+      <Route path="/settings" exact>
                 {currentUser ? (
           <Settings username={currentUser.username} />
         ) : (
-          <Redirect to="/paf-front-end" />
+          <Redirect to="/" />
         )}
       </Route>
-      <Route path="/paf-front-end/friends" exact>
+      <Route path="/friends" exact>
         {currentUser ? (
           <FriendsC username={currentUser.username}  color={currentUser.color}/>
         ) : (
-          <Redirect to="/paf-front-end" />
+          <Redirect to="/" />
         )}
       </Route>
-      <Route path="/paf-front-end/login" exact>
+      <Route path="/login" exact>
         {currentUser ? (
-          <Redirect to="/paf-front-end" />
+          <Redirect to="/" />
         ) : (
           <Login loginFunc={(f) => loginFunc(f)} />
         )}
       </Route>
-      <Route path="/paf-front-end/sign-up" exact>
+      <Route path="/sign-up" exact>
         {currentUser ? (
-          <Redirect to="/paf-front-end/friends" />
+          <Redirect to="/friends" />
         ) : (
           <Signup signupFunc={(f) => signupFunc(f)} />
         )}
       </Route>
       <Route path="/">
         {currentUser ? (
-          <Redirect to="/paf-front-end/" />
+          <Redirect to="/" />
         ) : (
           <Signup signupFunc={(f) => signupFunc(f)} />
         )}

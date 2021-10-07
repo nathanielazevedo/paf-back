@@ -102,14 +102,14 @@ function FriendInfoContainer({color}) {
         </form>
         <div className="friend-options">
           <Link
-            to={`/paf-front-end/chat/${friend?.id}`}
+            to={`/chat/${friend?.id}`}
             className="text-chat icon"
           >
             <i className="fas fa-comment-dots text-chat"></i>
             <span className="icon-description">Text Chat</span>
           </Link>
           <Link
-            to={`/paf-front-end/facechat/${friend?.id}`}
+            to={`/facechat/${friend?.id}`}
             className="face-chat icon"
           >
             <i className="fas fa-microphone face-chat"></i>

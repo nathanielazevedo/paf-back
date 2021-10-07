@@ -36,20 +36,20 @@ function NavBar({logoutFunc, loginFunc}) {
         </div>
         <div className={click ? "nav-links" : "nav-links"}>
           <NavLink
-            to="/paf-front-end/friends"
+            to="/friends"
             className={`nav-link ${currentUser.color}`}
             onClick={closeMobileMenu}
           >
             Friends
           </NavLink>
           <NavLink
-            to="/paf-front-end/sign-up"
+            to="/sign-up"
             className={`nav-link ${currentUser.color}`}
             onClick={logoutFunc}
           >
             Logout
           </NavLink>
-          <NavLink to="/paf-front-end/settings" className={`nav-link ${currentUser.color}`}>
+          <NavLink to="/settings" className={`nav-link ${currentUser.color}`}>
             <i className="fas fa-cog" style={{color: "white"}}></i>
           </NavLink>
         </div>
@@ -62,7 +62,7 @@ function NavBar({logoutFunc, loginFunc}) {
     return (
       <nav className="nav-container">
         <Link
-          to="/paf-front-end"
+          to="/"
           className="nav-logo"
           onClick={closeMobileMenu}
         >
@@ -80,14 +80,14 @@ function NavBar({logoutFunc, loginFunc}) {
             Try as guest
           </div>
           <Link
-            to="/paf-front-end/login"
+            to="/login"
             className="nav-link"
             onClick={closeMobileMenu}
           >
             Login
           </Link>
           <Link
-            to="/paf-front-end/sign-up"
+            to="/sign-up"
             className="nav-link"
             onClick={closeMobileMenu}
           >
