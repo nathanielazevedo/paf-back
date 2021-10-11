@@ -22,19 +22,28 @@ function Robot() {
   );
 }
 
+function ThreeD(){
+  return(
+        <Canvas className="robot"camera={{ position: [5, 0, 0] }} >
+          <OrbitControls
+            enablePan={true}
+            enableZoom={false}
+            enableRotate={true}
+          />
+          <Robot/>
+          <ambientLight intensity={0.9}/>
+          <pointLight position={[10, 10, 10]} intensity={0.9} />
+        </Canvas>
+  )
+}
+
 function Home() {
   return (
     <div className="home-container">
-      <Canvas className="robot"camera={{ position: [5, 0, 0] }} >
-        <OrbitControls
-          enablePan={true}
-          enableZoom={false}
-          enableRotate={true}
-        />
-        <Robot/>
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} intensity={0.9} />
-      </Canvas>
+      <div className="quote"><span>Program</span> <span className="your-own">your own</span> Spanish speaking <span className="robot-text">robot</span></div>
+      <div className="robot-container">
+      <ThreeD/>
+      </div>
     </div>
   );
 }

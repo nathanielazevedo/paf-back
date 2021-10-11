@@ -19,7 +19,7 @@ function Routes({loginFunc, signupFunc}) {
   return (
     <Switch>
       <Route path="/" exact>
-        {!currentUser ? <Suspense fallback={null}><Home /></Suspense> : <Redirect to="/friends" />}
+        {!currentUser ? <Suspense fallback={'loading'}><Home /></Suspense> : <Redirect to="/friends" />}
       </Route>
       <Route path="/friend/:id" exact>
         <StatementC color={currentUser?.color}/>

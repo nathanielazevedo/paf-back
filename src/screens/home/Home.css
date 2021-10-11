@@ -1,17 +1,33 @@
 /** @format */
 .home-container{
   color: white;
-  height: 100vh;
+  flex: 1;
+  display: flex;
   width: 100vw;
-}
-
-
-.top-section{
-  background-color: white;
-  width: 100vw;
-  height: 55vh;
-}
-
-.robot{
   background-color: #1c2227;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.quote{
+  color: white;
+  top: 100px;
+  z-index: 2;
+  font-size: 30px;
+}
+
+.robot-container{
+  height: 50vh;
+  width: 40vw;
+
+}
+
+.your-own{
+  text-decoration: underline;
+  color: teal;
+}
+
+.robot-text{
+  color: teal;
 }
