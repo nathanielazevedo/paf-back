@@ -6,6 +6,7 @@ import UserContext from "../UserContext";
 import Home from "../screens/home/Home";
 import Login from "../auth/Login";
 import Signup from "../auth/Signup";
+import Loading from "../screens/loading/Loading"
 import FriendsC from "../screens/friends-list-container/FriendsListContainer";
 import ResponseC from "../screens/responses-container/ResponsesContainer";
 import Chat from "../screens/text-chat/Chat";
@@ -19,7 +20,7 @@ function Routes({loginFunc, signupFunc}) {
   return (
     <Switch>
       <Route path="/" exact>
-        {!currentUser ? <Suspense fallback={'loading'}><Home /></Suspense> : <Redirect to="/friends" />}
+        {!currentUser ? <Suspense fallback={<Loading/>}><Home /></Suspense> : <Redirect to="/friends" />}
       </Route>
       <Route path="/friend/:id" exact>
         <StatementC color={currentUser?.color}/>

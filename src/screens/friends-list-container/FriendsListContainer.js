@@ -10,7 +10,7 @@ import "./FriendsListContainer.css";
 function FriendsListContainer({ username, color }) {
   const [friends, setFriends] = useState([]);
   const [fetch, setFetch] = useState(false);
-  const [setAddStatus] = useState(false);
+  const [addStatus, setAddStatus] = useState(false);
 
   //GET ALL Friends
   useEffect(() => {
@@ -25,7 +25,8 @@ function FriendsListContainer({ username, color }) {
   //CREATE
   const addFriend = async (formData) => {
     await Paf.addFriend(formData);
-    setFetch((old) => !old)
+    setFetch((old) => !old);
+    setAddStatus(false)
   };
 
     //ADDS EMPTY STATEMENT FORM
@@ -65,7 +66,7 @@ function FriendsListContainer({ username, color }) {
   return (
       <div className="friends-list">
         {allFriends}
-        <button className={`add-friend-button accent ${color}`} onClick={addFriendScreen}>+</button>
+        <button className={`add-friend-button accent ${color}`} onClick={addFriendScreen} disabled={addStatus}>+</button>
       </div>
   );
 }

@@ -22,19 +22,21 @@ function NavBar({logoutFunc, loginFunc}) {
   function loggedInNav() {
     return (
       <nav className="nav-container">
-        <NavLink to="/" exact className="nav-logo" onClick={closeMobileMenu}>
-          Spanish Speaking{" "}
-          <div
-            style={{display: "inline"}}
-            className={`accent ${currentUser.color}`}
-          >
-            Robot
+        <div className="nav-inner-left">
+          <NavLink to="/" exact className="nav-logo" onClick={closeMobileMenu}>
+            Spanish Speaking{" "}
+            <div
+              style={{display: "inline"}}
+              className={`accent ${currentUser.color}`}
+            >
+              Robot
+            </div>
+          </NavLink>
+          <div className="nav-hamburger" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
-        </NavLink>
-        <div className="nav-hamburger" onClick={handleClick}>
-          <i className={click ? "fas fa-times" : "fas fa-bars"} />
         </div>
-        <div className={click ? "nav-links" : "nav-links"}>
+        <div className={click ? "nav-links active" : "nav-links"}>
           <NavLink
             to="/friends"
             className={`nav-link ${currentUser.color}`}
@@ -43,9 +45,10 @@ function NavBar({logoutFunc, loginFunc}) {
             Friends
           </NavLink>
           <NavLink
-            to="/sign-up"
+            to="/"
             className={`nav-link ${currentUser.color}`}
             onClick={logoutFunc}
+            style={{borderBottom: 'none'}}
           >
             Logout
           </NavLink>
@@ -60,35 +63,37 @@ function NavBar({logoutFunc, loginFunc}) {
   //Generate nav for logged out users.
   function loggedOutNav() {
     return (
-      <nav className="nav-container">
-        <Link
-          to="/"
-          className="nav-logo"
-          onClick={closeMobileMenu}
-        >
-          Spanish Speaking{" "}
-          <div style={{color: "#1fa58a", display: "inline"}}>Robot</div>
-        </Link>
-        <div className="nav-hamburger">
-          <i
-            className={click ? "fas fa-times" : "fas fa-bars"}
-            onClick={handleClick}
-          />
+      <nav className="nav-container out">
+        <div className="nav-inner-left">
+          <Link
+            to="/"
+            className="nav-logo"
+            onClick={closeMobileMenu}
+          >
+            Spanish Speaking{" "}
+            <div style={{color: "#1fa58a", display: "inline"}}>Robot</div>
+          </Link>
+          <div className="nav-hamburger">
+            <i
+              className={click ? "fas fa-times" : "fas fa-bars"}
+              onClick={handleClick}
+            />
+          </div>
         </div>
         <div className={click ? "nav-links active" : "nav-links"}>
-          <div className="nav-link" onClick={closeMobileGuest}>
+          <div className="nav-link out-link" onClick={closeMobileGuest}>
             Try as guest
           </div>
           <Link
             to="/login"
-            className="nav-link"
+            className="nav-link out-link"
             onClick={closeMobileMenu}
           >
             Login
           </Link>
           <Link
             to="/sign-up"
-            className="nav-link"
+            className="nav-link out-link"
             onClick={closeMobileMenu}
           >
             Sign Up

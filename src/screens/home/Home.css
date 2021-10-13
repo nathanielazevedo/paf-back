@@ -1,33 +1,54 @@
 /** @format */
-.home-container{
+.home-container {
   color: white;
   flex: 1;
   display: flex;
-  width: 100vw;
   background-color: #1c2227;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.top-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 70vh;
+}
+
+.quote {
+  font-size: 3rem;
+}
+
+.middle-section {
+  width: 100vw;
+  height: 40vh;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-.quote{
-  color: white;
-  top: 100px;
-  z-index: 2;
-  font-size: 30px;
+.check-section {
+  padding: 10px;
+  display: flex;
+  align-items: center;
 }
 
-.robot-container{
-  height: 50vh;
-  width: 40vw;
-
+.fa-check {
+  font-size: 1.5rem;
+  margin-right: 40px;
 }
 
-.your-own{
-  text-decoration: underline;
-  color: teal;
+.bottom-section {
+  width: 100vw;
+  display: flex;
+  padding: 120px 0 20px 10px;
 }
 
-.robot-text{
-  color: teal;
+.linkedin{
+  font-size: .8rem;
+}
+.connect{
+  font-size: .7rem;
 }
