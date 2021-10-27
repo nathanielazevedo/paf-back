@@ -1,20 +1,72 @@
-
-.friend-container {
+.flex-column {
   display: flex;
-  flex: 1;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: #1c2227;
 }
 
-.friend-info {
+.main-friend-container {
+  flex: 1;
+  background-color: #1c2227;
+  justify-content: flex-start;
+}
+
+.main-friend-info {
   width: 90vw;
-  display: flex;
-  background-color: #121212;
-  padding: 40px;
   margin-top: 50px;
   border-radius: 10px;
+  background-color: #121212;
+  flex-direction: row;
+  padding: 40px;
 }
+
+.main-friend-form {
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 30%;
+  overflow: hidden;
+}
+
+.main-friend-form-input {
+  font-size: 40px;
+  background-color: transparent;
+  overflow: hidden;
+  border: none;
+}
+
+.main-friend-name {
+  color: white;
+}
+
+.main-friend-description {
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+.main-friend-options {
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-evenly;
+}
+
+.icon {
+  margin-top: 25px;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.icon + .icon-description {
+  font-size: 15px;
+  color: transparent;
+  margin-top: 5px;
+}
+
+.icon:hover + .icon-description {
+  color: white;
+}
+
+/* statements begin */
 
 .statements-container {
   width: 90vw;
@@ -22,7 +74,8 @@
   flex-direction: column;
   margin-top: 40px;
 }
-.add-statement{
+
+.add-statement {
   font-size: 40px;
   align-self: flex-end;
   justify-self: flex-end;
@@ -32,81 +85,39 @@
   margin-right: 100px;
 }
 
-.add-statement:disabled{
+.add-statement:disabled {
   color: gray;
 }
 
-.inputed{
-
-  border: none;
-  background-color: transparent;
-  font-size: 40px;
-}
-
-.edit-friend{
-  color: white;
-  font-size: 30px;
-}
-
-.delete-friend{
-  color: white;
-  font-size: 30px;
-}
-
-.text-chat{
-  color: white;
-  text-decoration: none;
-  font-size: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.icon{
-    display: flex;
+@media only screen and (max-width: 780px) {
+  .main-friend-info {
     flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  }
 
-.icon .icon-description{
-  font-size: 15px;
-  padding-top: 20px;
-  color: transparent;
-}
-.icon:hover .icon-description{
-  color: white;
-  display:inline;
-  overflow: hidden;
-}
+  .main-friend-info {
+    justify-content: space-evenly;
+    align-items: center;
+  }
 
-.face-chat{
-  color: white;
-  text-decoration: none;
-  font-size: 30px;
-  display: flex;
-    flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  .main-friend-form {
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    overflow: hidden;
+  }
 
-.friend-options{
-  display: flex;
-  flex: 1;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 25px;
-}
+  .main-friend-options {
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+  }
 
-.friend-form{
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+  .icon-description {
+    font-size: 20px;
+    display: none;
+  }
 }
-
-.main-friend-description{
-  margin-top: 25px;
-  font-size: 20px;
-}
-

@@ -80,50 +80,54 @@ function FriendInfoContainer({color}) {
   }
 
   return (
-    <div className="friend-container">
-      <div className="friend-info">
-        <form className="friend-form">
+    <div className="main-friend-container flex-column">
+
+      <div className="main-friend-info flex-column">
+
+        <div className="main-friend-form flex-column">
           <input
-            type="text"
             value={formData?.name}
             disabled={edit}
             name="name"
             onChange={handleChange}
-            className="inputed friend-name"
+            className="main-friend-form-input main-friend-name"
           />
           <input
-            type="text"
             value={formData?.description}
             disabled={edit}
             name="description"
             onChange={handleChange}
-            className={`inputed main-friend-description ${color}`}
+            className={`main-friend-form-input main-friend-description ${color}`}
           />
-        </form>
-        <div className="friend-options">
+        </div>
+
+        <div className="main-friend-options flex-column">
           <Link
             to={`/chat/${friend?.id}`}
-            className="text-chat icon"
+            className="flex-column"
           >
-            <i className="fas fa-comment-dots text-chat"></i>
+            <i className="icon fas fa-comment-dots flex-column"></i>
             <span className="icon-description">Text Chat</span>
           </Link>
           <Link
             to={`/facechat/${friend?.id}`}
-            className="face-chat icon"
+            className="flex-column"
           >
-            <i className="fas fa-microphone face-chat"></i>
+            <i className="icon fas fa-microphone"></i>
             <span className="icon-description">Face Chat</span>
           </Link>
-          <div onClick={edit ? toggleEdit : editFriend} className="edit-friend icon">
-            {edit ? <i className="fas fa-pen edit-friend"></i> : "Save"}
+          <div onClick={edit ? toggleEdit : editFriend} className="flex-column">
+            {edit ? <i className="icon fas fa-pen edit-friend"></i> : "Save"}
             <span className="icon-description">Edit Info</span>
           </div>
-          <i className="fa fa-trash-alt delete-friend icon" onClick={deleteFriend}>
+          <div className="flex-column">
+            <i className="icon fa fa-trash-alt" onClick={deleteFriend}></i>
             <span className="icon-description">Delete Friend</span>
-          </i>
+          </div>
         </div>
+
       </div>
+
       <div className="statements-container" id="spot">
         {statements.map((s, i) => {
           if (s.blank) {

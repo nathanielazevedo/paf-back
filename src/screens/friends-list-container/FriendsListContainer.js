@@ -22,6 +22,7 @@ function FriendsListContainer({ username, color }) {
     },
     [fetch, username]
   );
+  
   //CREATE
   const addFriend = async (formData) => {
     await Paf.addFriend(formData);

@@ -52,3 +52,8 @@
   border-bottom: solid rgb(155, 155, 155) 1px;
 }
 
+.add-statement-container{
+  border-bottom: solid white 1px;
+  width: 75%;
+}
+

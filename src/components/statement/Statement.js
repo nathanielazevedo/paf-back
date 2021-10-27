@@ -37,7 +37,7 @@ function Statement({statement, id, editFunc, deleteFunc, addFunc, add, index}) {
     return (
       <div className="statements-responses-container">
         <div className="statement-container">
-          <input value={formData.statement} name="statement" onChange={handleChange} className="statement"/>
+          <input value={formData.statement} name="statement" onChange={handleChange} className="statement add-statement-container" autoComplete="off"/>
           <div className="statement-options">
             <div
               className="delete-statement"
