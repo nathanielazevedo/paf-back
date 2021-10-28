@@ -29,6 +29,7 @@ function ResponsesContainer({id, showResponses}) {
   const addResponse = async (formData) => {
     formData.statement_id = parseInt(id);
     await Paf.addStatementResponse(formData);
+    setAddResponseStatus(false);
     setFetch((old) => !old);
   };
 

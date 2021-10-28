@@ -67,7 +67,7 @@ function FriendsListContainer({ username, color }) {
   return (
       <div className="friends-list">
         {allFriends}
-        <button className={`add-friend-button accent ${color}`} onClick={addFriendScreen} disabled={addStatus}>+</button>
+        <button className={`add-friend-button accent ${!addStatus && color}`} onClick={addFriendScreen} disabled={addStatus}>+</button>
       </div>
   );
 }

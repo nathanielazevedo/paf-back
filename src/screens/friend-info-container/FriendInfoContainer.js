@@ -46,6 +46,7 @@ function FriendInfoContainer({color}) {
   const addStatement = async (formData) => {
     formData.friend_id = parseInt(id);
     await Paf.addFriendStatement(formData);
+    setAddStatus(false);
     setFetch((old) => !old);
   };
 
@@ -58,6 +59,7 @@ function FriendInfoContainer({color}) {
   // DELETE STATEMENT
   async function deleteStatement(id) {
     await Paf.deleteStatement(id);
+    setAddStatus(false);
     setFetch((old) => !old);
   }
 
@@ -65,6 +67,7 @@ function FriendInfoContainer({color}) {
   async function editFriend() {
     await Paf.editFriend(friend.id, formData);
     setFetch((old) => !old);
+    setEdit(true)
   }
 
   //DELETE FRIEND
@@ -117,8 +120,8 @@ function FriendInfoContainer({color}) {
             <span className="icon-description">Face Chat</span>
           </Link>
           <div onClick={edit ? toggleEdit : editFriend} className="flex-column">
-            {edit ? <i className="icon fas fa-pen edit-friend"></i> : "Save"}
-            <span className="icon-description">Edit Info</span>
+            {edit ? <i className="icon fas fa-pen edit-friend"></i> : <span style={{color: 'white'}}>Save</span>}
+            <span className="icon-description" style={{display:!edit ? 'none' : 'flex'}}>Edit Info</span>
           </div>
           <div className="flex-column">
             <i className="icon fa fa-trash-alt" onClick={deleteFriend}></i>

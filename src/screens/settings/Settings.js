@@ -70,9 +70,12 @@ function Settings({username}) {
         />
       </div>
       <div className="colors">
-        <div className={`color orange ${formData?.color === 'orange' ? 'chosen' : ''}`} onClick={() => handleColorChange('orange')}></div>
-        <div className={`color blue ${formData?.color === 'blue' ? 'chosen' : ''}`} onClick={() => handleColorChange('blue')}></div>
-        <div className={`color green ${formData?.color === 'green' ? 'chosen' : ''}`} onClick={() => handleColorChange('green')}></div>
+        <div style={{color: 'white'}}>Choose an accent color:</div>
+        <div className="colors">
+          <div className={`color orange ${formData?.color === 'orange' ? 'chosen' : ''}`} onClick={() => handleColorChange('orange')}></div>
+          <div className={`color blue ${formData?.color === 'blue' ? 'chosen' : ''}`} onClick={() => handleColorChange('blue')}></div>
+          <div className={`color green ${formData?.color === 'green' ? 'chosen' : ''}`} onClick={() => handleColorChange('green')}></div>
+        </div>
       </div>
       <button className={`submit-user-info ${currentUser.color}`} onClick={() => updateUser()}>
         Edit User Info
