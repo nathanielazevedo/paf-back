@@ -52,4 +52,6 @@
   background-color: transparent;
   border: none;
   border-bottom: solid gold 1px;
+  border-radius: 0;
+  -webkit-appearance: none;
 }
