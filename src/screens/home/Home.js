@@ -1,12 +1,8 @@
-/** @format */
-
 import React from "react";
 import "./Home.css";
 import "../../App.css";
 
 //Basic hero section
-
-
 function Home() {
   return (
     <div className="home-container">

@@ -33,39 +33,20 @@ function Chat() {
     return { success: true };
   };
 
-  //spot toggles left to right. Allows for each users comment to be placed in the right spot.
-  let spot;
   return (
     <div className="chat-container">
       <div className="chat-room-container">
         <ul className="chat-spot">
           {text.map((t, i) => {
-            switch (spot) {
-              case undefined:
-                spot = "left";
-                break;
-              case "left":
-                spot = "right";
-                break;
-              case "right":
-                spot = "left";
-                break;
-              default:
-                spot = "left";
-            }
-
             return (
-              <li className="chat-text" style={{ textAlign: spot }} key={i}>
-                {spot === "left" ? (
-                  <img alt="avatar" className="chat-avatar" src={avatar} />
-                ) : null}
+              <li className="chat-text" key={i}>
                 {t.statement}
               </li>
             );
           })}
         </ul>
 
-        <form className="chat-form" autoComplete="off">
+        <form className="chat-form" autoComplete="off" onSubmit={addText}>
           <input
             type="text"
             name="statement"
@@ -74,7 +55,7 @@ function Chat() {
             onChange={handleChange}
             autoComplete="off"
           ></input>
-          <button className="chat-button" onClick={addText}>
+          <button className="chat-button" type="submit">
             Send
           </button>
         </form>

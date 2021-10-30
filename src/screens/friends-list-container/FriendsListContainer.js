@@ -36,6 +36,15 @@ function FriendsListContainer({ username, color }) {
     setFriends((old) => [...old, {blank: true}]);
   }
 
+  function cancelAddFriend(){
+    setAddStatus(false);
+    setFriends((old) => {
+      let removedLast = [...old];
+      removedLast.pop();
+      return removedLast
+    });
+  }
+
   //GENERATE FRIENDS
   let allFriends = friends
     ? friends.map((f, i) => {
@@ -67,7 +76,9 @@ function FriendsListContainer({ username, color }) {
   return (
       <div className="friends-list">
         {allFriends}
-        <button className={`add-friend-button accent ${!addStatus && color}`} onClick={addFriendScreen} disabled={addStatus}>+</button>
+        <div className="add-friend-button-container">
+          <button className={`add-friend-button accent ${!addStatus ? color : 'cancel-add'}`} onClick={!addStatus ? addFriendScreen : cancelAddFriend}>{addStatus ? '-' : '+'}</button>
+        </div>
       </div>
   );
 }

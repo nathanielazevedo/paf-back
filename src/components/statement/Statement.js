@@ -47,7 +47,6 @@ function Statement({statement, id, editFunc, deleteFunc, addFunc, add, index}) {
             </div>
           </div>
         </div>
-        <ResponsesContainer id={id} showResponses={showResponses}/>
       </div>
     );  
   }else{

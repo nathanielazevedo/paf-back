@@ -3,7 +3,7 @@ import React, {useState, useContext} from "react";
 import "./Response.css";
 import UserContext from '../../UserContext'
 //Renders an individual response.
-function Response({s, deleteFunc, editFunc, index, message, addResponseStatus, addScreenFunc, addFunc}) {
+function Response({s, deleteFunc, editFunc, index, message, addResponseStatus, addScreenFunc, addFunc, cancelAddResponse}) {
   const [edit, setEdit] = useState(true);
   const [formData, setFormData] = useState({response: s?.response});
   const {currentUser} = useContext(UserContext)
@@ -57,12 +57,18 @@ function Response({s, deleteFunc, editFunc, index, message, addResponseStatus, a
           name="response"
           onChange={handleChange}
           className="inputText editable"
-          autocomplete="off"
+          autoComplete="off"
         />
         <div className="response-options">
           <div
-            onClick={() => {addFunc(formData)}}
+            onClick={cancelAddResponse}
             className="response-delete"
+          >
+            {"Cancel"}
+          </div>
+          <div
+            onClick={() => {addFunc(formData)}}
+            className=""
           >
             {"Save"}
           </div>

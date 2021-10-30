@@ -46,6 +46,7 @@
   background-color: transparent;
   border: none;
   margin-right: 27px;
+  cursor: pointer;
 }
 
 .editable{

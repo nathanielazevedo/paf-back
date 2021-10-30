@@ -1,0 +1,10 @@
+.confirmation-container{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: rgb(84, 204, 134);
+  font-size: 15px;
+  padding: 10px;
+  background-color: #121212;
+  border-radius: 10px;
+}

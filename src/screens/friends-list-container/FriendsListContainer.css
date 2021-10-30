@@ -10,11 +10,23 @@
   padding-top: 50px;
 }
 
+.add-friend-button-container{
+  width: 85%;
+  text-align: right;
+}
+
 .add-friend-button{
   background-color: transparent;
-  border: none;
-  font-size: 45px;
+  font-size: 35px;
   align-self: flex-end;
-  margin-right: 7vw;
-  margin-top: 10px;
+  margin-top: 25px;
+  background-color: #121212;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.cancel-add{
+  color: rgb(170, 19, 19);
 }

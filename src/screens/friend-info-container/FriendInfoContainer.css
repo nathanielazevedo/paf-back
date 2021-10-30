@@ -54,6 +54,7 @@
   color: white;
   text-decoration: none;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .icon + .icon-description {
@@ -64,6 +65,10 @@
 
 .icon:hover + .icon-description {
   color: white;
+}
+
+.fa-trash-alt:hover{
+  color: red;
 }
 
 /* statements begin */
@@ -80,9 +85,16 @@
   align-self: flex-end;
   justify-self: flex-end;
   margin-top: 20px;
-  background-color: transparent;
+  background-color: #121212;
+  padding: 0px 15px;
   border: none;
-  margin-right: 100px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.add-statement-containers{
+  width: 90vw;
+  text-align: right;
 }
 
 .add-statement:disabled {

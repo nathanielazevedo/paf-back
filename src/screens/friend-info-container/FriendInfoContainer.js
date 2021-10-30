@@ -5,6 +5,8 @@ import Statement from "../../components/statement/Statement";
 import {Link} from "react-router-dom";
 import "./FriendInfoContainer.css";
 import {useHistory} from 'react-router-dom'
+import Confirmation from "../../components/confirmation/Confirmation.js";
+import ConfirmMessage from "../../components/confirm/ConfirmMessage.js";
 
 //Should gather all info on friend and statements from here. (CRUD)
 function FriendInfoContainer({color}) {
@@ -15,6 +17,8 @@ function FriendInfoContainer({color}) {
   const [formData, setFormData] = useState({name: '', description: ''});
   const [addStatus, setAddStatus] = useState(false);
   const [fetch, setFetch] = useState(false);
+  const [confirm, setConfirm] = useState(false)
+  const [confirmMessageState, setConfirmMessageState] = useState(false)
   const history = useHistory();
 
   //TOGGLE FRIEND EDIT
@@ -45,9 +49,17 @@ function FriendInfoContainer({color}) {
   //ADD STATEMENT
   const addStatement = async (formData) => {
     formData.friend_id = parseInt(id);
-    await Paf.addFriendStatement(formData);
-    setAddStatus(false);
-    setFetch((old) => !old);
+    try{
+      await Paf.addFriendStatement(formData);
+      setAddStatus(false);
+      setFetch((old) => !old);
+      setConfirm(true)
+      setTimeout(() => {
+        setConfirm(false)
+      }, 1000)
+    } catch(e){
+      setConfirm(true)
+    }
   };
 
   // EDIT STATEMENT
@@ -70,6 +82,10 @@ function FriendInfoContainer({color}) {
     setEdit(true)
   }
 
+  function confirmDeleteFriend(){
+    setConfirmMessageState(true)
+  }
+
   //DELETE FRIEND
   async function deleteFriend() {
     await Paf.deleteFriend(id);
@@ -81,6 +97,17 @@ function FriendInfoContainer({color}) {
     setAddStatus(true);
     setStatements((old) => [...old, {blank: true}]);
   }
+
+  function cancelAddStatement(){
+    setAddStatus(false);
+    setStatements((old) => {
+      let canceled = [...old]
+      canceled.pop();
+      return canceled
+      });
+  }
+
+  let confirmation = confirm ? <Confirmation/> : null;
 
   return (
     <div className="main-friend-container flex-column">
@@ -94,6 +121,7 @@ function FriendInfoContainer({color}) {
             name="name"
             onChange={handleChange}
             className="main-friend-form-input main-friend-name"
+            style={{borderBottom: !edit ? `solid gold 1px` : 'none'}}
           />
           <input
             value={formData?.description}
@@ -101,6 +129,7 @@ function FriendInfoContainer({color}) {
             name="description"
             onChange={handleChange}
             className={`main-friend-form-input main-friend-description ${color}`}
+            style={{borderBottom: !edit ? `solid gold 1px` : 'none'}}
           />
         </div>
 
@@ -120,11 +149,11 @@ function FriendInfoContainer({color}) {
             <span className="icon-description">Face Chat</span>
           </Link>
           <div onClick={edit ? toggleEdit : editFriend} className="flex-column">
-            {edit ? <i className="icon fas fa-pen edit-friend"></i> : <span style={{color: 'white'}}>Save</span>}
-            <span className="icon-description" style={{display:!edit ? 'none' : 'flex'}}>Edit Info</span>
+            {edit ? <i className="icon fas fa-pen edit-friend"></i> : <span style={{color: 'white', cursor: 'pointer'}}>Save</span>}
+            <span className="icon-description" style={{display:!edit ? 'none' : ''}}>Edit Info</span>
           </div>
           <div className="flex-column">
-            <i className="icon fa fa-trash-alt" onClick={deleteFriend}></i>
+            <i className="icon fa fa-trash-alt" onClick={confirmDeleteFriend}></i>
             <span className="icon-description">Delete Friend</span>
           </div>
         </div>
@@ -159,13 +188,16 @@ function FriendInfoContainer({color}) {
           }
         })}
       </div>
-      <button
-        className={`add-statement ${color}`}
-        onClick={addStatementScreen}
-        disabled={addStatus}
-      >
-        +
-      </button>
+      <div className="add-statement-containers">
+        <button
+          className={`add-statement ${color}`}
+          onClick={!addStatus ? addStatementScreen : cancelAddStatement}
+        >
+          {!addStatus ? '+' : '-'}
+        </button>
+      </div>
+      {confirmation}
+      {confirmMessageState && <ConfirmMessage cancelDelete={() => setConfirmMessageState(false)} confirmDelete={deleteFriend}/>}
     </div>
   );
 }

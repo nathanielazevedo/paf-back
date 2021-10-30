@@ -15,6 +15,15 @@ function ResponsesContainer({id, showResponses}) {
     setResponses((old) => [...old, {blank: true}]);
   }
 
+  function cancelAddResponse(){
+    setAddResponseStatus(false);
+    setResponses((old) => {
+      let newArr = [...old];
+      newArr.pop();
+      return newArr;
+      });
+  }
+
   //Get all responses upon render
   useEffect(() => {
     async function getStatementInfo() {
@@ -56,7 +65,7 @@ function ResponsesContainer({id, showResponses}) {
           if (s.blank) {
             return (
               <>
-                <Response addFunc={addResponse} key={i} index={i} />
+                <Response addFunc={addResponse} key={i} index={i} cancelAddResponse={cancelAddResponse}/>
               </>
             );
           } else if (responses.length === i + 1) {
