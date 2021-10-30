@@ -4,7 +4,6 @@ import "./Chat.css";
 import Paf from "../../api.js";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import avatar from "./brain.jpg";
 
 //All api request regarding chatting are intiated here. (Paf.sendStatement)
 
