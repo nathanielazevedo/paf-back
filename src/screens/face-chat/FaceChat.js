@@ -1,6 +1,6 @@
 /** @format */
 
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import "./facechat.css";
 import Paf from "../../api.js";
@@ -10,6 +10,7 @@ function FaceChat() {
   const [sentence, setSentence] = useState("hola, quieres hablar?");
   const [recording, setRecording] = useState("blank");
   const [talkable, setTalkable] = useState("talk");
+  const [blink, setBlink] = useState(false)
   const {id} = useParams();
 
   var synth = window.speechSynthesis;
@@ -36,6 +37,14 @@ function FaceChat() {
     myLoop();
   }
 
+useEffect(() => {
+  setInterval(() => {
+    setBlink(true);
+    setTimeout(() => {
+      setBlink(false)
+    }, 225)
+  }, 5000)
+}, [])
 
   function startListening() {
     setRecording("recording");
@@ -65,10 +74,22 @@ function FaceChat() {
     <div className="head-container">
       <div className="head">
         <div className="eyes">
-          <div className="eyeball"></div>
-          <div className="eyeball"></div>
+          <div className={`eyeball ${blink && 'blinking'}`}>
+          <div className="inner-eye">
+          <div className="inner-inner-eye"></div>
+          
+          </div>
+          </div>
+          <div className={`eyeball ${blink && 'blinking'}`}>
+          
+            <div className="inner-eye">
+                      <div className="inner-inner-eye"></div>
+            </div>
+          </div>
         </div>
-        <div className={`mouth ${letter}`}></div>
+        <div className="mouth-container">
+          <div className={`mouth ${letter}`}></div>
+        </div>
       </div>
       <div
         style={{
@@ -82,7 +103,7 @@ function FaceChat() {
           className={`startRecording ${recording}`}
         ></div>
         <div onClick={speak} className={`${talkable}`}>
-          {">"}
+          <i class="fas fa-play-circle" style={{cursor: 'pointer'}}></i>
         </div>
       </div>
     </div>
