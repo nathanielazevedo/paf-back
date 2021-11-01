@@ -7,52 +7,17 @@ import Paf from "../../api.js";
 
 function FaceChat() {
   const [letter, setLetter] = useState("base");
-  const [sentence, setSentence] = useState("shut up please bitch");
+  const [sentence, setSentence] = useState("hola, quieres hablar?");
   const [recording, setRecording] = useState("blank");
   const [talkable, setTalkable] = useState("talk");
   const {id} = useParams();
 
   var synth = window.speechSynthesis;
-  // let senArray = sentence.split("");
   var utterThis = new SpeechSynthesisUtterance(sentence);
   let voices = synth.getVoices();
   utterThis.voice = voices[15];
-  const SpeechRecognition =
-    window.SpeechRecognition || window.webkitSpeechRecognition;
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
-  console.log(recognition);
-  // console.log(image)
-  //sets the next letter
-  // function speak() {
-  //   let id = setInterval(() => {
-  //     setLetter((old) => {
-  //       if (letter > senArray.length) {
-  //         clearInterval(id);
-  //         return 1;
-  //       } else {
-  //         return old + 1;
-  //       }
-  //     });
-  //   }, 75);
-  //   synth.speak(utterThis);
-  // }
-
-  // useEffect(() => {
-  //   var i = 1;
-  //   let word = sentence.split('')
-
-  //   function myLoop() {
-  //     setTimeout(function () {
-  //       setLetter((word[i]));
-  //       i++;
-  //       if (i < 10) {
-  //         myLoop();
-  //       }
-  //     }, 100);
-  //   }
-
-  //   myLoop();
-  // }, [sentence]);
 
   function speak() {
     var i = 1;
@@ -71,27 +36,6 @@ function FaceChat() {
     myLoop();
   }
 
-  //sets the image
-  // useEffect(() => {
-  //   setImage((old) => {
-  //     let spot = letter;
-  //     if (!spot) {
-  //       spot = 'a';
-  //     }
-  //     return spot;
-  //   });
-  // }, [letter]);
-
-  //sends text to server, server responses with resposne.
-  // const addText = async (evt) => {
-  //   evt.preventDefault();
-  //   setText((data) => [...data, formData]);
-  //   formData.friend_id = id;
-  //   let res = await Paf.sendStatement(formData);
-  //   setText((data) => [...data, { statement: res }]);
-  //   setFormData({ statement: "" });
-  //   return { success: true };
-  // };
 
   function startListening() {
     setRecording("recording");
